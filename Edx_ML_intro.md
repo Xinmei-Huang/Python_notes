@@ -1,4 +1,4 @@
-Edx_ML_intro
+#Edx_ML_intro
 
 #----------Unit 0. Python set up---------#
 
@@ -18,6 +18,7 @@ Pycharm
 3. check the interpreter in the configuration  
 
 
-#----------Unit 0. Python set up---------#
+#----------Unit 1. Python set up---------#
+#------L1. linear classifiers ------#
 
 
