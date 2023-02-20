@@ -42,10 +42,12 @@ initialize $\theta$ and $\theta_0$ with 0
 >>> then  
 >>> $\ \theta  = \theta + y^{(i)} \cdot x^{(i)}$   
 >>> $\ \theta_0 = \theta_0 + y^{(i)}$   
->return $\theta, \theta_0$  
+>return $\theta, \theta_0$  \
 
 
-#------Lecture 3 Hinge loss, Margin boundaries and Regularization ------#    
+#------Lecture 2 Hinge loss, Margin boundaries and Regularization ------#    
+Decision boundary is the set of points $x$ which satisfy: $\theta \cdot x + \theta_0 = 0$   
+Margin Boundary is the set of points $x$ which satisfy: $\theta \cdot x + \theta_0 = \pm 1$ 
 
 
 
