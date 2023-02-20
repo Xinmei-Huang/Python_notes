@@ -21,7 +21,7 @@ Pycharm
 ---------------------------------------------------------------------
 ## Unit 1. Linear classifier
 
-#------L1. linear classifiers ------#  
+#------L1. l2. linear classifiers ------#  
 A linear classifier $h, h(x; \theta_0, \theta) = sign(\theta \cdot x + \theta_0)$, i.e. the sign of the dot product of $\theta$ and $x$ plus $\theta_0$.   
 Linear separability: $y_i \cdot h(x_i) > 0$ for all $i$.  
 
@@ -45,13 +45,28 @@ initialize $\theta$ and $\theta_0$ with 0
 >return $\theta, \theta_0$  \
 
 
-#------Lecture 2 Hinge loss, Margin boundaries and Regularization ------#    
-Decision boundary is the set of points $x$ which satisfy: $\theta \cdot x + \theta_0 = 0$   
-Margin Boundary is the set of points $x$ which satisfy: $\theta \cdot x + \theta_0 = \pm 1$    
+#------Lecture 3. Hinge loss, Margin boundaries and Regularization ------#    
+***Decision boundary*** is the set of points $x$ which satisfy: $\theta \cdot x + \theta_0 = 0$   
+***Margin Boundary*** is the set of points $x$ which satisfy: $\theta \cdot x + \theta_0 = \pm 1$    
 So, the distance from the decision boundary to the margin boundary is $\frac{1}{||\theta||}$.   
 
-Regularization:  $max \lbrace\frac{1}{||\theta||}\rbrace$   
-Hinge loss: $Loss_h (y^{(i)} \\cdot (\theta \cdot x^{(i)} + \theta_0)) = 0, (if \ z \geq 1); 1-z, (if \ z < 1)$, where $z = y^{(i)} \\cdot (\theta \cdot x^{(i)} + \theta_0)$
+***Regularization***:  $max \lbrace\frac{1}{||\theta||}\rbrace$ = $min \lbrace\frac{1}{2}||\theta||\rbrace$      
+***Hinge loss***: $Loss_h (y^{(i)} \\cdot (\theta \cdot x^{(i)} + \theta_0)) = 0, (if \ z \geq 1); 1-z, (if \ z < 1)$, where $z = y^{(i)} \\cdot (\theta \cdot x^{(i)} + \theta_0)$     
+***Objectives = average loss + regularization***        
+$J(\theta, \theta_0) = \frac{1}{n} \Sigma_{i=1}^n Loss_h (y^{(i)} \\cdot (\theta \cdot x^{(i)} + \theta_0)) + \frac{\lambda}{2}||\theta||^2$,
+where average loss: $\frac{1}{n} \Sigma_{i=1}^n Loss_h (y^{(i)} \\cdot (\theta \cdot x^{(i)} + \theta_0))$, regularization term: $\frac{\lambda}{2}||\theta||^2$, regularization paramter: $\lambda > 0 $.   
+
+
+#------Lecture 4. Linear Classification and Generalization ------#      
+Split training set into training set + validation set, and assess the loss of validation set.   
+
+***Gradient descent***: Start $\theta$ at an arbitrary location: $\theta \leftarrow \theta_start$,    
+update $\theta$ repeatedly with $\theta \leftarrow \theta - \eta \frac{\partial J(\theta, \theta_0)}{\partial \theta}$ until $\theta$  does not change significantly.
+
+
+
+
+
 
 
 
