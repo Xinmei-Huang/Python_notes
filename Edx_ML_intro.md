@@ -50,7 +50,8 @@ Decision boundary is the set of points $x$ which satisfy: $\theta \cdot x + \the
 Margin Boundary is the set of points $x$ which satisfy: $\theta \cdot x + \theta_0 = \pm 1$    
 So, the distance from the decision boundary to the margin boundary is $\frac{1}{||\theta||}$.   
 
-Regularization:  $max \lbrace\frac{1}{||\theta||}\rbrace$
+Regularization:  $max \lbrace\frac{1}{||\theta||}\rbrace$   
+Hinge loss: $Loss_h (y^{(i)} \\cdot (\theta \cdot x^{(i)} + \theta_0)) = 0, (if \ z \geq 1); 1-z, (if \ z < 1)$, where $z = y^{(i)} \\cdot (\theta \cdot x^{(i)} + \theta_0)$
 
 
 
