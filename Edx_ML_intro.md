@@ -47,7 +47,10 @@ initialize $\theta$ and $\theta_0$ with 0
 
 #------Lecture 2 Hinge loss, Margin boundaries and Regularization ------#    
 Decision boundary is the set of points $x$ which satisfy: $\theta \cdot x + \theta_0 = 0$   
-Margin Boundary is the set of points $x$ which satisfy: $\theta \cdot x + \theta_0 = \pm 1$ 
+Margin Boundary is the set of points $x$ which satisfy: $\theta \cdot x + \theta_0 = \pm 1$    
+So, the distance from the decision boundary to the margin boundary is $\frac{1}{||\theta||}$.   
+
+Regularization:  $max \lbrace\frac{1}{||\theta||}\rbrace$
 
 
 
