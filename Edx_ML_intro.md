@@ -21,7 +21,7 @@ Pycharm
 ---------------------------------------------------------------------
 ## Unit 1. Linear classifier
 
-#------L1. linear classifiers ------#
-
-
+#------L1. linear classifiers ------#  
+A linear classifier $h, h(x; \theta_0, \theta) = sign(\theta \cdot x + \theta_0)$, i.e. the sign of the dot product of $\theta$ and $x$ plus $\theta_0$.   
+Linear separability: $y_i \cdot h(x_i) > 0$ for all $i$.  
 
