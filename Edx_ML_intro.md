@@ -1,6 +1,7 @@
-#Edx_ML_intro
+# Edx_ML_intro
 
-#----------Unit 0. Python set up---------#
+---------------------------------------------------------------------
+## Unit 0. Python set up
 
 conda updates:  
 https://github.com/ContinuumIO/anaconda-issues/issues/12135 [bluesblaz]  
@@ -17,8 +18,10 @@ Pycharm
 2. add interpreter: excutable conda: select "conda.exe", chech the path by "which conda" in anaconda prompt.  
 3. check the interpreter in the configuration  
 
+---------------------------------------------------------------------
+## Unit 1. Linear classifier
 
-#----------Unit 1. Python set up---------#
 #------L1. linear classifiers ------#
+
 
 
