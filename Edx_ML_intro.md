@@ -25,3 +25,6 @@ Pycharm
 A linear classifier $h, h(x; \theta_0, \theta) = sign(\theta \cdot x + \theta_0)$, i.e. the sign of the dot product of $\theta$ and $x$ plus $\theta_0$.   
 Linear separability: $y_i \cdot h(x_i) > 0$ for all $i$.  
 
+- Algorithem:    
+Training error: $\varepsilon_n(\theta_0, \theta) = \frac{1}{n} \ \Sigma_{i=1}^n \[\[ y^{(i)} \\cdot (\theta \cdot x^{(i)} + \theta_0) \leq 0 \]\]$  
+where $\[\[ \cdot \]\]$returns 1 if the logical expression in the argument is true, and zero otherwis  
