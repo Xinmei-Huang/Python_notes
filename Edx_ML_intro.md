@@ -29,7 +29,7 @@ Linear separability: $y_i \cdot h(x_i) > 0$ for all $i$.
 Training error: $\varepsilon_n(\theta_0, \theta) = \frac{1}{n} \ \Sigma_{i=1}^n \[\[ y^{(i)} \\cdot (\theta \cdot x^{(i)} + \theta_0) \leq 0 \]\]$  
 where $\[\[ \cdot \]\]$ returns 1 if the logical expression in the argument is true, and zero otherwis  
 
-Learning algorithm: Perceptron Algorithm   
+Learning algorithm: ***Perceptron Algorithm***      
 initialize $\theta$ and $\theta_0$ with 0  
 > $\theta$ = $\theta$ (vector)  
 > $\theta_0$ = 0 (scalar)  
@@ -74,6 +74,10 @@ Differently from perceptron, $\theta$ is updated even when there is no mistake.
 
 ????? Other classifier and learning results!!!!!!!
 
+- Algorithm:   
+1）Perceptron Algorithm   
+2）Pegasos Algorithm   
+if $y^{(i)} \cdot (\theta \cdot x^{(i)}) \leq 1$, then update $\theta = (1 - \eta \lambda) \theta + \eta y^{(i)} x^{(i)}$; else, update $\theta = (1 - \eta \lambda) \theta$   
 
 
 
