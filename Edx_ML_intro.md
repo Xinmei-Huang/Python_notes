@@ -101,8 +101,11 @@ scale $\theta$ st. $(y^M \cdot \ (\theta \cdot x^M + \theta_0) = 1$
 therefore, $\gamma_{ref} = \frac{1}{\theta_0}$   
 $J(\theta, \theta_0) = \frac{1}{n} \Sigma_{i=1}^n Loss_h (y^{(i)} \cdot (\theta \cdot x^{(i)} + \theta_0)) + \alpha ||\theta||^2$   
 
-(2) Testing and Training Error as Regularization Increases
-
+(2) Cross validation --> get $\alpha$   
+n: segments
+<img src="https://user-images.githubusercontent.com/55688631/220850369-5d896612-46ed-4361-9a7b-d4d4ac6451a8.png" width="400" height="whatever">   
+accuracy score: $S(\alpha) = \frac{1}{n} \Sigma_{i=1}^n S(\alpha_i)$    
+$\alpha^{\*} = argmin_{\alpha} S(\alpha)$ 
 
 
 
