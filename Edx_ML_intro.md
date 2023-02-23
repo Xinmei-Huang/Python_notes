@@ -29,7 +29,8 @@ Linear separability: $y_i \cdot h(x_i) > 0$ for all $i$.
 Training error: $\varepsilon_n(\theta_0, \theta) = \frac{1}{n} \ \Sigma_{i=1}^n \[\[ y^{(i)} \\cdot (\theta \cdot x^{(i)} + \theta_0) \leq 0 \]\]$  
 where $\[\[ \cdot \]\]$ returns 1 if the logical expression in the argument is true, and zero otherwis  
 
-Learning algorithm: ***Perceptron Algorithm***      
+Learning algorithm:
+ 1)***Perceptron Algorithm***      
 initialize $\theta$ and $\theta_0$ with 0  
 > $\theta$ = $\theta$ (vector)  
 > $\theta_0$ = 0 (scalar)  
@@ -43,6 +44,10 @@ initialize $\theta$ and $\theta_0$ with 0
 >>> $\ \theta  = \theta + y^{(i)} \cdot x^{(i)}$   
 >>> $\ \theta_0 = \theta_0 + y^{(i)}$   
 >return $\theta, \theta_0$  \
+
+
+2）***Pegasos Algorithm***  
+if $y^{(i)} \cdot (\theta \cdot x^{(i)}) \leq 1$, then update $\theta = (1 - \eta \lambda) \theta + \eta y^{(i)} x^{(i)}$; else, update $\theta = (1 - \eta \lambda) \theta$
 
 
 #------Lecture 3. Hinge loss, Margin boundaries and Regularization ------#    
@@ -72,18 +77,31 @@ Differently from perceptron, $\theta$ is updated even when there is no mistake.
 
 ***Support vector machine***: SVMs can efficiently perform a non-linear classification using what is called the kernel trick, implicitly mapping their inputs into high-dimensional feature spaces.
 
-????? Other classifier and learning results!!!!!!!
 
-- Algorithm:   
-1）Perceptron Algorithm   
-2）Pegasos Algorithm   
-if $y^{(i)} \cdot (\theta \cdot x^{(i)}) \leq 1$, then update $\theta = (1 - \eta \lambda) \theta + \eta y^{(i)} x^{(i)}$; else, update $\theta = (1 - \eta \lambda) \theta$   
+#------Lecture 4. Tuning the Regularization Hyperparameter by Cross Validation ------#  
+***Supervised Learning***     
+Objective function (J = Loss + regularization($\alpha$R)) --> hyperparameter ($\alpha$, not determined through the optimization of J) --> cross validation     
 
+(1) Support Vector Machine --> maximize the margin (more generalization)    
+$D: {(x_i, y_i)} \ i = 1, 2, ..., n$   
+distant from point i to the decision boundary: $\gamma = \frac{y_i \cdot \ (\theta \cdot x_i + \theta_0)}{||\theta||}$    
+margin, $d = \min_{x_i, y_i \in D} \ \gamma (x_i, y_i, \theta, \theta_0)$
 
+***Objective function = hinge loss + regularization***
+***hinge loss*** = $L_h = f(\frac{\gamma}{|gamma_{ref}}) = 1 - \frac{\gamma}{|gamma_{ref}}, \gamma \leq \gamma_{ref}; 0, \ o.w $  
+<img src="https://user-images.githubusercontent.com/55688631/220841162-cadde400-63b0-4b96-9576-9e86fcf05bda.png" width="400" height="whatever">
 
+***objective function***     
+$J(\theta, \theta_0) = \frac{1}{n} \Sigma_{i=1}^n Loss_h (\frac{\gamma}{\gamma_{ref}}) + \alpha \frac{1}{||\gamma||^2}$   
 
+--> Maximize the margin   
+$\theta$ can be scaled by any constant w.o changing the decision boundary.
+$\gamma_{ref} = \frac{y^M \cdot \ (\theta \cdot x^M + \theta_0)}{||\theta||}$    
+scale $\theta$ st. $(y^M \cdot \ (\theta \cdot x^M + \theta_0) = 1$    
+therefore, $\gamma_{ref} = \frac{1}{\theta_0}$   
+$J(\theta, \theta_0) = \frac{1}{n} \Sigma_{i=1}^n Loss_h (y^{(i)} \cdot (\theta \cdot x^{(i)} + \theta_0)) + \alpha ||\theta||^2$   
 
-
+(2) Testing and Training Error as Regularization Increases
 
 
 
