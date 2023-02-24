@@ -102,10 +102,27 @@ therefore, $\gamma_{ref} = \frac{1}{\theta_0}$
 $J(\theta, \theta_0) = \frac{1}{n} \Sigma_{i=1}^n Loss_h (y^{(i)} \cdot (\theta \cdot x^{(i)} + \theta_0)) + \alpha ||\theta||^2$   
 
 (2) Cross validation --> get $\alpha$   
-n: segments
+n: segments      
 <img src="https://user-images.githubusercontent.com/55688631/220850369-5d896612-46ed-4361-9a7b-d4d4ac6451a8.png" width="400" height="whatever">   
 accuracy score: $S(\alpha) = \frac{1}{n} \Sigma_{i=1}^n S(\alpha_i)$    
 $\alpha^{\*} = argmin_{\alpha} S(\alpha)$ 
+
+
+---------------------------------------------------------------------
+## Unit 2. Nonlinear Classification, Linear regression, Collaborative Filtering
+#------Lecture 5. Linear regression ------#   
+(1) ***Objective***   
+1) Empirical risk 
+$R_n (\theta) = \frac{1}{n} \Sigma_{i=1}^n Loss(y^{(i)} - \theta \cdot x^{(i)})$   
+- Squared error loss 
+$Loss(z) = \frac{z^2}{2}$       
+$R_n (\theta) = \frac{1}{n} \Sigma_{i=1}^n Loss(y^{(i)} - \theta \cdot x^{(i)}) = \frac{1}{n} \Sigma_{i=1}^n \cdot \frac{1}{2} (y^{(i)} - \theta \cdot x^{(i)})^2$   
+- Hinge loss  
+$Loss_h (z) = 0, if z \geq 1; 1-z, o.w$
+
+(2) Learning Algorithm: gradient based approach
+
+
 
 
 
