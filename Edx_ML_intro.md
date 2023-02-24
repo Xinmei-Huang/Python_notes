@@ -134,7 +134,50 @@ if $x_1, ..., x_n \ in \ ℝ^d, n ≫ d, then \ \theta = A^{-1} b, where \ A = \
 (4) ***Regularization*** (Ridge and Lasso)        
 ***Ridge Regression***    
 $J_{\lambda, \theta} (\theta) = R_n(\theta) + \frac{\lambda}{2} ||\theta||^2$    
-learning step: $\theta = (1 - \eta \lambda) \theta + \eta (y^{(i)} - \theta \cdot x^{(i)}) \cdot x^{(i)}$     
+learning step: $\theta = (1 - \eta \lambda) \theta + \eta (y^{(i)} - \theta \cdot x^{(i)}) \cdot x^{(i)}$      
+
+
+#------Lecture 5. Non-linear classifier ------#     
+(1) Higher order feature vectors         
+map $x \in \ ℝ^d$ to $\phi(x) \in ℝ^p$     
+e.g $\phi(x) = \[\phi_1(x), \phi_2(x)\]^T = \[x, x^2\]^2$   
+$\phi(x) = \[x_1, x_2, x_1^2 + x_2^2\]^T$: hyperbolic paraboloid
+
+(2) Non-linear classifier     
+$h(x; \theta, \theta_0) = sign(\theta \cdot \phi(x) + \theta_0)$    
+
+(3) Kernels (inner product)   
+Computing the inner product of two feature vectors can be computationally cheap.     
+$\phi(x) = \[x_1, x_2, x_1^2 + x_2^2 + \sqrt{2} x_1 x_2\]^T$    
+$\phi(x') = \[{x'}_1, {x'}_2, {x'}_1^2 + {x'}_2^2 + \sqrt{2} {x'}_1 {x'}_2\]^T$     
+$K(x, x') = \phi(x) \cdot \phi(x') = (x, x') + (x, x')^2$    
+
+In general, $K(x, x') = \phi(x) \cdot \phi(x') = (1 + x x')^p, p = 1, 2,...$   
+
+(4) Kernel Perceptron Algorithm    
+From ***Perceptron algorithm***, we get $\theta = \Sigma_{j=1}^n \alpha_j y^{(j)} \phi(x^{(j)})$    
+$initial \ \theta = 0$   
+$run \ through \ i = 1, ..., n$   
+$\ if \ y^{(i)} \theta \cdot \phi(x^{(i)}) \leq 0,$   
+$\ \ \theta \leftarrow \theta + y^{(i)} \phi(x^{(i)})$    
+Here, $\theta \cdot \phi(x^{(i)}) = \Sigma_{j=1}^n \alpha_j y^{(j)} \phi(x^{(j)}) \cdot \phi(x^{(i)}) = \Sigma_{j=i}^n \alpha_j y^{(j)} \cdot K(x^{(j)}, x^{(i)})$   
+
+(5) Kernel composition rules     
+-  $K(x, x') = 1$ is a kernel.
+-  Let $f: ℝ^d \rightarrow ℝ$ and $K(x, x')$ is a kernel, then so it $\tilde{K}(x, x') = f(x) K(x, x') f(x')$.
+-  If $K_1(x, x')$ and $K_2(x, x')$ are kernels,  $K_1(x, x') + K_2(x, x')$ is a kernel.
+-  If $K_1(x, x')$ and $K_2(x, x')$ are kernels,  $K_1(x, x') \cdot K_2(x, x')$ is a kernel.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
