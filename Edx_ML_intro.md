@@ -1,6 +1,6 @@
 # Edx_ML_intro
 
----------------------------------------------------------------------
+------------------------------------------------------------------------------------
 ## Unit 0. Python set up
 
 conda updates:  
@@ -18,10 +18,10 @@ Pycharm
 2. add interpreter: excutable conda: select "conda.exe", chech the path by "which conda" in anaconda prompt.  
 3. check the interpreter in the configuration  
 
----------------------------------------------------------------------
+------------------------------------------------------------------------------------
 ## Unit 1. Linear classifier
-
-#------L1. l2. linear classifiers ------#  
+#-----------------------------------------------------------------------------------# 
+### L1. l2. linear classifiers 
 A linear classifier $h, h(x; \theta_0, \theta) = sign(\theta \cdot x + \theta_0)$, i.e. the sign of the dot product of $\theta$ and $x$ plus $\theta_0$.   
 Linear separability: $y_i \cdot h(x_i) > 0$ for all $i$.  
 
@@ -50,7 +50,8 @@ initialize $\theta$ and $\theta_0$ with 0
 if $y^{(i)} \cdot (\theta \cdot x^{(i)}) \leq 1$, then update $\theta = (1 - \eta \lambda) \theta + \eta y^{(i)} x^{(i)}$; else, update $\theta = (1 - \eta \lambda) \theta$
 
 
-#------Lecture 3. Hinge loss, Margin boundaries and Regularization ------#    
+#-----------------------------------------------------------------------------------# 
+### Lecture 3. Hinge loss, Margin boundaries and Regularization
 ***Decision boundary*** is the set of points $x$ which satisfy: $\theta \cdot x + \theta_0 = 0$   
 ***Margin Boundary*** is the set of points $x$ which satisfy: $\theta \cdot x + \theta_0 = \pm 1$    
 So, the distance from the decision boundary to the margin boundary is $\frac{1}{||\theta||}$.   
@@ -78,7 +79,8 @@ Differently from perceptron, $\theta$ is updated even when there is no mistake.
 ***Support vector machine***: SVMs can efficiently perform a non-linear classification using what is called the kernel trick, implicitly mapping their inputs into high-dimensional feature spaces.
 
 
-#------Lecture 4. Tuning the Regularization Hyperparameter by Cross Validation ------#  
+#-----------------------------------------------------------------------------------# 
+### Lecture 4. Tuning the Regularization Hyperparameter by Cross Validation 
 ***Supervised Learning***     
 Objective function (J = Loss + regularization($\alpha$R)) --> hyperparameter ($\alpha$, not determined through the optimization of J) --> cross validation     
 
@@ -108,9 +110,10 @@ accuracy score: $S(\alpha) = \frac{1}{n} \Sigma_{i=1}^n S(\alpha_i)$
 $\alpha^{\*} = argmin_{\alpha} S(\alpha)$ 
 
 
----------------------------------------------------------------------
+------------------------------------------------------------------------------------
 ## Unit 2. Nonlinear Classification, Linear regression, Collaborative Filtering
-#------Lecture 5. Linear regression ------#   
+#-----------------------------------------------------------------------------------#  
+### Lecture 5. Linear regression
 (1) ***Objective***   
 1) Empirical risk 
 $R_n (\theta) = \frac{1}{n} \Sigma_{i=1}^n Loss(y^{(i)} - \theta \cdot x^{(i)})$   
@@ -136,8 +139,8 @@ if $x_1, ..., x_n \ in \ ℝ^d, n ≫ d, then \ \theta = A^{-1} b, where \ A = \
 $J_{\lambda, \theta} (\theta) = R_n(\theta) + \frac{\lambda}{2} ||\theta||^2$    
 learning step: $\theta = (1 - \eta \lambda) \theta + \eta (y^{(i)} - \theta \cdot x^{(i)}) \cdot x^{(i)}$      
 
-
-#------Lecture 5. Non-linear classifier ------#     
+#-----------------------------------------------------------------------------------# 
+### Lecture 6. Non-linear classifier     
 (1) Higher order feature vectors         
 map $x \in \ ℝ^d$ to $\phi(x) \in ℝ^p$     
 e.g $\phi(x) = \[\phi_1(x), \phi_2(x)\]^T = \[x, x^2\]^2$   
@@ -169,7 +172,41 @@ Here, $\theta \cdot \phi(x^{(i)}) = \Sigma_{j=1}^n \alpha_j y^{(j)} \phi(x^{(j)}
 -  If $K_1(x, x')$ and $K_2(x, x')$ are kernels,  $K_1(x, x') \cdot K_2(x, x')$ is a kernel.
 
 (6) Radial basic kernel   
-Ref: https://www.cs.toronto.edu/~duvenaud/cookbook/ 
+Ref: https://www.cs.toronto.edu/~duvenaud/cookbook/   
+$K(x, x') = \exp{(- \frac{1}{2} ||x - x'||^2)}$
+
+(7) Other non-linear classifier: random forest
+
+
+#-----------------------------------------------------------------------------------# 
+### L7. Recommender System
+
+(1) K-Nearest Neighbor Method    
+$\hat{Y_{ai}} = \frac{\Sigma_{b \in KNN(a)} \ sim(a, b) Y_{bi}}{\Sigma_{b \in KNN(a)} \ sim(a, b)}$        
+$sim(a, b)$ can choose euclidean distance ||x_a - x_b||, cosince similarity $cos(\theta) = \frac{x_a \cdot x_b}{||x_a|| \cdot ||x_b||}$, etc.      
+
+Drawbacks: need to manually compute the similarities, can be very difficult to features similarities in subgroups.   
+
+(2) Collaborative filtering
+1) Naive approach (very bad performance)
+Considering the objectives of linear regression:     
+$J(X) = \Sigma_{a, i \in D} \frac{(Y_{ai} - X_{ai})^2}{2} + \frac{\lambda}{2} \Sigma_{(a,i)} X_{ai}^2$.    
+For $X_{ai} \in D$, $\frac{\partial{J}}{\partial{X_{ai}}} = (1 + \lambda) X_{ai} - Y_{ai}$, therefore $X_{ai} = \frac{Y_{ai}}{1 + \lambda}$.    
+For $X_{ai} \notin D$, $\frac{\partial{J}}{\partial{X_{ai}}} = \lambda \cdot X_{ai}$, therefore $X_{ai} = 0$.    
+
+2) Collaborative Filtering with Matrix Factorization    
+Assumption: X is low rank    
+Rank 1: O(n, m) --> O(n + m), $X = UV^T$, $X_{ai} = u_a \cdot v_i$ (oversimplification)   
+Rank 2: $X = UV^T$, $X \in ℝ^{a \times i}, U \in ℝ^{a \times 2}, V \in ℝ^{i \times 2}$   
+...  
+
+(3) Alternating minimization    
+assume $X_{ai} = u_a v_i$ rank 1,   
+$J(U, V) = \Sigma_{(a, i) \in D} (y_{ai} - u_a v_i)^2 + \frac{\lambda}{2} \Sigma_{a=1}^n u_a^2 + \frac{\lambda}{2} \Sigma_{i=1}^n v_i^2$    
+start with an initial $v$ (random initialization)--> solve $u'$, and input $u'$ --> solve $v'$ --> iritate until converge    
+
+
+
 
 
 
