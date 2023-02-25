@@ -168,6 +168,11 @@ Here, $\theta \cdot \phi(x^{(i)}) = \Sigma_{j=1}^n \alpha_j y^{(j)} \phi(x^{(j)}
 -  If $K_1(x, x')$ and $K_2(x, x')$ are kernels,  $K_1(x, x') + K_2(x, x')$ is a kernel.
 -  If $K_1(x, x')$ and $K_2(x, x')$ are kernels,  $K_1(x, x') \cdot K_2(x, x')$ is a kernel.
 
+(6) Radial basic kernel   
+Ref: https://www.cs.toronto.edu/~duvenaud/cookbook/ 
+
+
+
 
 
 
