@@ -157,6 +157,11 @@ $K(x, x') = \phi(x) \cdot \phi(x') = (x, x') + (x, x')^2$
 
 In general, $K(x, x') = \phi(x) \cdot \phi(x') = (1 + x x')^p, p = 1, 2,...$   
 
+Example kernel: https://stats.stackexchange.com/questions/152897/how-to-intuitively-explain-what-a-kernel-is       
+$k(x, y) = \phi(x)^T \phi(y) = (1 + x^T y)^2, \ with \ x,y \in ℝ^2, x=(x_1, x_2), y=(y_1, y_2)$, get expression for $\phi(x)$     
+$k(x, y) = (1 + x^T y)^2 = (1 + x_1 y_1, x_2 y_2)^2 = 1 + x_1^2y_1^2 + x_2^2y_2^2 + 2x_1 y_1 + 2x_2 y_2 + 2x_1x_2y_1y_2$      
+Therefore $\phi(X) = \phi(x_1, x_2) = (1, x_1^2, x_2^2, \sqrt{2} x_1,  \sqrt{2} x_2,  \sqrt{2} x_1 x_2)$
+
 (4) Kernel Perceptron Algorithm    
 From ***Perceptron algorithm***, we get $\theta = \Sigma_{j=1}^n \alpha_j y^{(j)} \phi(x^{(j)})$    
 $initial \ \theta = 0$   
