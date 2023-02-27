@@ -294,7 +294,7 @@ def compute_test_error_svm(test_y, pred_test_y):
 Hardmax: binary output --> Softmax: probability output  
 softmax function h,
 ```math
-h(x) = \frac{1}{\Sigma_{j=0}^{k-1} \exp(\theta_j \cdot x / \tau)} \begin{bmatrix}\frac{1}{\exp(\theta_0 \cdot x / \tau)}\\ \frac{1}{\exp(\theta_1 \cdot x / \tau)}\\ .\\.\\. \\ \frac{1}{\exp(\theta_{k-1} \cdot x / \tau)} \end{bmatrix}
+h(x) = \frac{1}{\Sigma_{j=0}^{k-1} \exp(\theta_j \cdot x / \tau)} \begin{bmatrix}\frac{1}{\exp(\theta_0 \cdot x / \tau)}\\ \frac{1}{\exp(\theta_1 \cdot x / \tau)}\\ \vdots \\ \frac{1}{\exp(\theta_{k-1} \cdot x / \tau)} \end{bmatrix}
 ```
 
 
