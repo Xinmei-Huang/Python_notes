@@ -290,6 +290,13 @@ def compute_test_error_svm(test_y, pred_test_y):
     return 1 - np.mean(pred_test_y == test_y)
 ```
 
+(3) Multinomial (Softmax) Regression and Gradient Descent     
+Hardmax: binary output --> Softmax: probability output  
+softmax function h,
+```math
+h(x) = \frac{1}{\Sigma_{j=0}^{k-1} \exp(\theta_j \cdot x / \tau)} \begin{bmatrix}\frac{1}{\exp(\theta_0 \cdot x / \tau)}\\ \frac{1}{\exp(\theta_1 \cdot x / \tau)}\\ .\\.\\. \\ \frac{1}{\exp(\theta_{k-1} \cdot x / \tau)} \end{bmatrix}
+```
+
 
 
 
