@@ -290,7 +290,7 @@ def compute_test_error_svm(test_y, pred_test_y):
     return 1 - np.mean(pred_test_y == test_y)
 ```
 
-(3) Multinomial (Softmax) Regression and Gradient Descent     
+(3) Multinomial (***Softmax***) Regression and Gradient Descent     
 Hardmax: binary outcome(scores) --(sigmoid function)--> Softmax: probability output  
 softmax function h,
 ```math
@@ -300,8 +300,15 @@ where $\tau > 0$ is the temperature parameter. the terms $\exp(\theta_j \cdot x 
 ```math
 h(x) = \frac{1}{\Sigma_{j=0}^{k-1} \exp((\theta_j \cdot x / \tau)) -c} \begin{bmatrix}\frac{1}{\exp((\theta_0 \cdot x / \tau)) -c}\\ \frac{1}{\exp((\theta_1 \cdot x / \tau)) -c}\\ \vdots \\ \frac{1}{\exp((\theta_{k-1} \cdot x / \tau))-c} \end{bmatrix},
 ```
-A suitable choice for this fixed amount is $c = \max_{j} \theta_j \cdot x / \tau$.    
+A suitable choice for this fixed amount is $c = \max_{j} \theta_j \cdot x / \tau$.      
 
+--> Allow continuous methods to solve discrete tasks      
+--> Model uncertainty: key to learning, to have calibrated predictions     
+```mermaid
+  graph LR;
+      A[Discrete]--"onehot"-->B[Continuous];
+      B[Continuous]--"softmax"-->A[Discrete];
+```
 
 
 
