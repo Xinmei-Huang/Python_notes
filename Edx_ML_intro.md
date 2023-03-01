@@ -296,10 +296,21 @@ softmax function h,
 ```math
 h(x) = \frac{1}{\Sigma_{j=0}^{k-1} \exp(\theta_j \cdot x / \tau)} \begin{bmatrix}\frac{1}{\exp(\theta_0 \cdot x / \tau)}\\ \frac{1}{\exp(\theta_1 \cdot x / \tau)}\\ \vdots \\ \frac{1}{\exp(\theta_{k-1} \cdot x / \tau)} \end{bmatrix},
 ```
-where $\tau > 0$ is the temperature parameter. the terms $\exp(\theta_j \cdot x / \tau)$ may be very large or very small, due to the use of the exponential function. To deal with this, we can simply subtract some fixed amount  from each exponent to keep the resulting number from getting **too large**.   
+where $\tau > 0$ is the temperature parameter.  
+--> Loss function and derivative:      
+Softmax: $S: ℝ^n \rightarrow ℝ^n$, $S_j = p_j = \frac{\exp(z_j)}{\Sigma_{l=1}^{n} \exp{z_l}}$, $z_j = np.matmul(\theta, x_j)$,      
+Loss function: $L = - \Sigma_{j}^{n}  y_j \log{p_j}, j = 1, ..., n$, where $y$ is the output class numbered 1...n a is any n-vector, eg. $\[0, 0, ...1, ...,0\]$.    
+Derivative: $\frac{\partial{p_j}}{\partial{z_i}} = p_i (1 - p_i), i = j$,   
+$\frac{\partial{p_j}}{\partial{z_i}} =  - p_i p_j, i \neq j$,    
+therefore, $\frac{\partial{L}}{\partial{z_i}} = -(y_i(1 - p_i) + \Sigma_{k \neq i}^{n} -p_i y_k) = p_i y_i - yi + \Sigma_{k \neq i}^{n} p_i y_k) = p_i (\Sigma_{k}^{n} y_i) - y_i = p_i - y_i$. ($\Sigma_{k}^{n} y_i = 1$)
+
+
+
+The terms $\exp(\theta_j \cdot x / \tau)$ may be very large or very small, due to the use of the exponential function. To deal with this, we can simply subtract some fixed amount  from each exponent to keep the resulting number from getting **too large**.   
 ```math
 h(x) = \frac{1}{\Sigma_{j=0}^{k-1} \exp((\theta_j \cdot x / \tau)) -c} \begin{bmatrix}\frac{1}{\exp((\theta_0 \cdot x / \tau)) -c}\\ \frac{1}{\exp((\theta_1 \cdot x / \tau)) -c}\\ \vdots \\ \frac{1}{\exp((\theta_{k-1} \cdot x / \tau))-c} \end{bmatrix},
 ```
+
 A suitable choice for this fixed amount is $c = \max_{j} \theta_j \cdot x / \tau$.      
 
 --> Allow continuous methods to solve discrete tasks      
@@ -309,6 +320,8 @@ A suitable choice for this fixed amount is $c = \max_{j} \theta_j \cdot x / \tau
       A[Discrete]--"onehot"-->B[Continuous];
       B[Continuous]--"softmax"-->A[Discrete];
 ```
+
+
 
 
 
