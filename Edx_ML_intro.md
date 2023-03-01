@@ -303,12 +303,13 @@ Softmax: $S: ℝ^n \rightarrow ℝ^n$, $S_j = p_j = \frac{\exp(z_j)}{\Sigma_{l=1
 Loss function: $L = - \Sigma_{j}^{n}  y_j \log{p_j}, j = 1, ..., n$, where $y$ is the output class numbered 1...n a is any n-vector, eg. $\[0, 0, ...1, ...,0\]$.    
 Derivative: $\frac{\partial{p_j}}{\partial{z_i}} = p_i (1 - p_i), i = j$,   
 $\frac{\partial{p_j}}{\partial{z_i}} =  - p_i p_j, i \neq j$,    
-therefore, $\frac{\partial{L}}{\partial{z_i}} = -(y_i(1 - p_i) + \Sigma_{k \neq i}^{n} -p_i y_k) = p_i y_i - yi + \Sigma_{k \neq i}^{n} p_i y_k) = p_i (\Sigma_{k}^{n} y_i) - y_i = p_i - y_i$. ($\Sigma_{k}^{n} y_i = 1$)
+therefore, $\frac{\partial{L}}{\partial{z_i}} = -(y_i(1 - p_i) + \Sigma_{k \neq i}^{n} -p_i y_k) = p_i y_i - yi + \Sigma_{k \neq i}^{n} p_i y_k) = p_i (\Sigma_{k}^{n} y_i) - y_i = p_i - y_i$. ($\Sigma_{k}^{n} y_i = 1$)     
 
-<img src="https://user-images.githubusercontent.com/55688631/222207979-2c1ec003-749b-4bee-840a-4529dfa76fb2.png" width="400" height="whatever"> 
---> convex, easy to compute      
---> bounded gradients, (0, 1)      
---> tight surragate for 0-1 loss: Softma loss > 0-1 loss, if softmax loss ->0, then 0-1 loss -> 0.     \
+<img src="https://user-images.githubusercontent.com/55688631/222207979-2c1ec003-749b-4bee-840a-4529dfa76fb2.png" width="400" height="whatever">      
+- convex, easy to compute     
+- bounded gradients, (0, 1)     
+- tight surragate for 0-1 loss: Softma loss > 0-1 loss, if softmax loss ->0, then 0-1 loss -> 0     
+
 
 The terms $\exp(\theta_j \cdot x / \tau)$ may be very large or very small, due to the use of the exponential function. To deal with this, we can simply subtract some fixed amount  from each exponent to keep the resulting number from getting **too large**.   
 ```math
