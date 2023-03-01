@@ -292,7 +292,7 @@ def compute_test_error_svm(test_y, pred_test_y):
 
 (3) Multinomial (***Softmax***) Regression and Gradient Descent     
 Hardmax: binary outcome(scores) --(sigmoid function)--> Softmax: probability output  
-softmax function h,
+***softmax function*** h,
 ```math
 h(x) = \frac{1}{\Sigma_{j=0}^{k-1} \exp(\theta_j \cdot x / \tau)} \begin{bmatrix}\frac{1}{\exp(\theta_0 \cdot x / \tau)}\\ \frac{1}{\exp(\theta_1 \cdot x / \tau)}\\ \vdots \\ \frac{1}{\exp(\theta_{k-1} \cdot x / \tau)} \end{bmatrix},
 ```
@@ -306,6 +306,7 @@ $\frac{\partial{p_j}}{\partial{z_i}} =  - p_i p_j, i \neq j$,
 therefore, $\frac{\partial{L}}{\partial{z_i}} = -(y_i(1 - p_i) + \Sigma_{k \neq i}^{n} -p_i y_k) = p_i y_i - yi + \Sigma_{k \neq i}^{n} p_i y_k) = p_i (\Sigma_{k}^{n} y_i) - y_i = p_i - y_i$. ($\Sigma_{k}^{n} y_i = 1$)     
 
 <img src="https://user-images.githubusercontent.com/55688631/222207979-2c1ec003-749b-4bee-840a-4529dfa76fb2.png" width="400" height="whatever">      
+
 - convex, easy to compute     
 - bounded gradients, (0, 1)     
 - tight surragate for 0-1 loss: Softma loss > 0-1 loss, if softmax loss ->0, then 0-1 loss -> 0     
