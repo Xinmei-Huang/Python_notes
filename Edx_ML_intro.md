@@ -336,7 +336,9 @@ For a particular $\theta_m$,
 &= - \frac{1}{\tau n} \Sigma_{i=1}^{n} [ x^{(i)} ([[ y^{(i)} == m ]] -p(y^{(i)} = m| x^{(i)},\theta)) ] + \lambda \theta_m
 \end{align}
 ```
-update each step $\theta = \leftarrow \theta - \alpha \nabla_{\theta} J(\theta)$, where $\alpha$ is learning rate.
+update each step $\theta = \leftarrow \theta - \alpha \nabla_{\theta} J(\theta)$, where $\alpha$ is learning rate.    
+
+
 
 
 
