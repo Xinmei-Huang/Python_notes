@@ -299,7 +299,7 @@ h(x) = \frac{1}{\Sigma_{j=0}^{k-1} \exp(\theta_j \cdot x / \tau)} \begin{bmatrix
 where $\tau > 0$ is the temperature parameter.  
 
 ***Loss function and derivative***:      
-Softmax: $S: ℝ^n \rightarrow ℝ^n$, $S_j = p_j = \frac{\exp(z_j)}{\Sigma_{l=1}^{n} \exp{z_l}}$, $z_j = np.matmul(\theta, x_j)$,      
+Softmax: $S: ℝ^n \rightarrow ℝ^n$, $S_j = p_j = \frac{\exp(z_j)}{\Sigma_{l=1}^{n} \exp{z_l}}$, $z_j = np.matmul(\theta, x_j)/\tau$,      
 Loss function: $L = - \Sigma_{j}^{n}  y_j \log{p_j}, j = 1, ..., n$, where $y$ is the output class numbered 1...n a is any n-vector, eg. $\[0, 0, ...1, ...,0\]$.    
 Derivative: $\frac{\partial{p_j}}{\partial{z_i}} = p_i (1 - p_i), i = j$,   
 $\frac{\partial{p_j}}{\partial{z_i}} =  - p_i p_j, i \neq j$,    
@@ -326,6 +326,17 @@ A suitable choice for this fixed amount is $c = \max_{j} \theta_j \cdot x / \tau
       A[Discrete]--"onehot"-->B[Continuous];
       B[Continuous]--"softmax"-->A[Discrete];
 ```
+
+
+***Gradient descent***   
+For a particular $\theta_m$,    
+```math
+\begin{align}  
+\frac{\partial{J(\theta)}}{\partial{\theta_m}} &= \frac{\partial}{\partial{\theta_m}} [ - \frac{1}{n} [ \Sigma_{i=1}^{n} \Sigma_{j=0}^{k-1} [[y^{(i)} == j ]] \log{p(y^{(i)} = j| x^{(i)},\theta)} ]+ \frac{\lambda}{2} \Sigma_{j=0}^{k-1} \Sigma_{i=0}^{d-1} \theta_{ji}^2 ]  \\
+&= - \frac{1}{\tau n} \Sigma_{i=1}^{n} [ x^{(i)} ([[ y^{(i)} == m ]] -p(y^{(i)} = m| x^{(i)},\theta)) ] + \lambda \theta_m
+\end{align}
+```
+update each step $\theta = \leftarrow \theta - \alpha \nabla_{\theta} J(\theta)$, where $\alpha$ is learning rate.
 
 
 
