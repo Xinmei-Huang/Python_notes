@@ -314,7 +314,7 @@ therefore, $\frac{\partial{L}}{\partial{z_i}} = -(y_i(1 - p_i) + \Sigma_{k \neq 
 
 The terms $\exp(\theta_j \cdot x / \tau)$ may be very large or very small, due to the use of the exponential function. To deal with this, we can simply subtract some fixed amount  from each exponent to keep the resulting number from getting **too large**.   
 ```math
-h(x) = \frac{1}{\Sigma_{j=0}^{k-1} \exp((\theta_j \cdot x / \tau)) -c} \begin{bmatrix}\frac{1}{\exp((\theta_0 \cdot x / \tau)) -c}\\ \frac{1}{\exp((\theta_1 \cdot x / \tau)) -c}\\ \vdots \\ \frac{1}{\exp((\theta_{k-1} \cdot x / \tau))-c} \end{bmatrix},
+h(x) = \frac{1}{\Sigma_{j=0}^{k-1} \exp((\theta_j \cdot x) / \tau) -c} \begin{bmatrix}\frac{1}{\exp((\theta_0 \cdot x) / \tau) -c}\\ \frac{1}{\exp((\theta_1 \cdot x) / \tau) -c}\\ \vdots \\ \frac{1}{\exp((\theta_{k-1} \cdot x) / \tau)-c} \end{bmatrix},
 ```
 
 A suitable choice for this fixed amount is $c = \max_{j} \theta_j \cdot x / \tau$.      
@@ -357,7 +357,20 @@ By projecting an $n \times d$ dataset $X$ onto $k \leq d$ of these directions, w
 
 (5) Features: ***Cubic Features***      
 Cubic Features maps an input vectio $x = \[x_1, ..., x_d\]$ into a new feature vector $\phi (x)$, defined so that for any $x, x' \in \mathbb{R}^d$:      
-$\phi(x)^T \phi(x') = (x^T x'+1)^3$       
+$\phi(x)^T \phi(x') = (x^T x'+1)^3$   
+
+(6) ***Kernel Methods***     
+$\theta_j = \Sigma_{i=1}^n \alpha_j^{(i)} y^{(i)} \phi(x^{(i)})$      
+```math  
+\begin{align}
+h(x) 
+&= \frac{1}{\Sigma_{j=0}^{k-1} \exp((\theta_j \cdot \phi(x^{(i)}) / \tau) -c} \begin{bmatrix}\frac{1}{\exp((\theta_0 \cdot \phi(x^{(i)}) / \tau) -c}\\ \frac{1}{\exp((\theta_j \cdot \phi(x^{(i)}) / \tau) -c}\\ \vdots \\ \frac{1}{\exp((\theta_{k-1} \cdot \phi(x^{(i)}) / \tau)-c} \end{bmatrix} \\
+
+&= \frac{1}{\Sigma_{j=0}^{k-1} \exp((\Sigma_{i=1}^n \alpha_j^{(i)} y^{(i)} \phi(x^{(i)} \cdot \phi(x^{(i)}) / \tau) -c} \begin{bmatrix}\frac{1}{\exp((\Sigma_{i=1}^n \alpha_1^{(i)} y^{(i)} \phi(x^{(i)}\cdot \phi(x^{(i)}) / \tau) -c}\\ \frac{1}{\exp((\Sigma_{i=1}^n \alpha_2^{(i)} y^{(i)} \phi(x^{(i)} \cdot \phi(x^{(i)}) / \tau) -c}\\ \vdots \\ \frac{1}{\exp((\Sigma_{i=1}^n \alpha_k^{(i)} y^{(i)} \phi(x^{(i)} \cdot \phi(x^{(i)}) / \tau)-c} \end{bmatrix}
+\end{align}
+```
+We actually do not need the real mapping $\phi(x)$, but the inner product between two features after mapping: $\phi(x_i)\phi(x)$, where $x_i$ is a point in the training set and $x$ is the new data point for which we want to compute the probability. If we can create a kernel function $K(x,y) = \phi(x) \cdot \phi(y)$, for any two points $x$ and $y$, we can then kernelize our softmax regression algorithm.
+
 
 
 
