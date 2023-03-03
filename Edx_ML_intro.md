@@ -213,6 +213,7 @@ start with an initial $v$ (random initialization)--> solve $u'$, and input $u'$ 
 
 #-----------------------------------------------------------------------------------# 
 ### Python Implementation
+http://kehang.github.io/basic_project/2017/04/02/mnist-classifiers-exploration/      
 (1) Linear Regression with Closed Form Solution    
 
 ```ruby
