@@ -292,7 +292,7 @@ def compute_test_error_svm(test_y, pred_test_y):
 
 (3) Multinomial (***Softmax***) Regression and Gradient Descent     
 Hardmax: binary outcome(scores) --(sigmoid function)--> Softmax: probability output  
-1) ***softmax function*** h,
+3.1) ***softmax function*** h,
 ```math
 h(x) = \frac{1}{\Sigma_{j=0}^{k-1} \exp(\theta_j \cdot x / \tau)} \begin{bmatrix}\frac{1}{\exp(\theta_0 \cdot x / \tau)}\\ \frac{1}{\exp(\theta_1 \cdot x / \tau)}\\ \vdots \\ \frac{1}{\exp(\theta_{k-1} \cdot x / \tau)} \end{bmatrix},
 ```
@@ -328,7 +328,7 @@ A suitable choice for this fixed amount is $c = \max_{j} \theta_j \cdot x / \tau
 ```
 
 
-2) ***Gradient descent***   
+3.2) ***Gradient descent***   
 For a particular $\theta_m$,    
 ```math
 \begin{align}  
@@ -339,10 +339,33 @@ For a particular $\theta_m$,
 update each step $\theta = \leftarrow \theta - \alpha \nabla_{\theta} J(\theta)$, where $\alpha$ is learning rate.    
 
 
-3) ***Temperate parameter effects***    
+3.3) ***Temperate parameter effects***   
+a) Probability
 Increasing temperature parameter would decrease the probability of a sample $x^{(i)}$ being assigned a label that has a large $\theta$, and increase for labels with small $\theta$. The mathematic explanation is following:   
-$\frac{\partial{\log{(P_j)}}}{\partial{\tau}} = $
-The first term is the bracket is weighted average of $theta x$, so if $theta_j x$ is large, the value of the brackect will be negative, leading to negative $\frac{\partial{\log{(P_j)}}}{\partial{\tau}}$. 
+$P_j = \frac{\exp{(\theta_k x/ \tau)}}{\Sigma_k \exp{(\theta_k x/ \tau)}}$    
+$\frac{\partial{\log{(P_j)}}}{\partial{\tau}} = \frac{1}{\tau^2} \[ \frac{c \theta_k x}{\Sigma_k \exp{(\theta_k x/ \tau)}} - \theta_j x\]$     
+The first term is the bracket is weighted average of $theta x$, so if $theta_j x$ is large, the value of the brackect will be negative, leading to negative $\frac{\partial{\log{(P_j)}}}{\partial{\tau}}$.    
+
+b) Test error   
+Smaller temperature leads to less variance --> smaller test error     
+Increasing temperature parameter makes probability of large-$\theta$ label decrease and that of small-$\theta$ label increase, the probability distribution becomes **more uniform** as temperature parameter icreases.    
+
+
+(4) Features: Dimensionality Reduction via ***PCA***             
+By projecting an $n \times d$ dataset $X$ onto $k \leq d$ of these directions, we get a new dataset of lower dimension that reflects more variation in the original data than any other $k$-dimensional linear projection of $X$. By going through some linear algebra, it can be proven that these directions are equal to the $k$ eigenvectors corresponding to the $k$ largest eigenvalues of the covariance matrix $\tilde{X}^T\tilde{X}$, where $\tilde{X}$ is a centered version of our original data.     
+
+
+(5) Features: ***Cubic Features***      
+Cubic Features maps an input vectio $x = \[x_1, ..., x_d\]$ into a new feature vector $\phi (x)$, defined so that for any $x, x' \in \mathbb{R}^d$:      
+$\phi(x)^T \phi(x') = (x^T x'+1)^3$       
+
+
+
+
+
+
+
+
 
 
 
