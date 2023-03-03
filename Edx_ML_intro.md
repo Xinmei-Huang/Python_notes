@@ -359,8 +359,13 @@ By projecting an $n \times d$ dataset $X$ onto $k \leq d$ of these directions, w
 Cubic Features maps an input vectio $x = \[x_1, ..., x_d\]$ into a new feature vector $\phi (x)$, defined so that for any $x, x' \in \mathbb{R}^d$:      
 $\phi(x)^T \phi(x') = (x^T x'+1)^3$   
 
-(6) ***Kernel Methods***     
-$\theta_j = \Sigma_{i=1}^n \alpha_j^{(i)} y^{(i)} \phi(x^{(i)})$      
+(6) ***Kernel Methods***   
+Recall the kernel perceptron algorithm we learned in the lecture. The weights $\theta$ can be represented by a linear combination of features:      
+$\theta = \Sigma_{i=1}^n \alpha^{(i)} y^{(i)} \phi(x^{(i)})$.    
+
+In the softmax regression fomulation, we can also apply this representation of the weights:
+$\theta_j = \Sigma_{i=1}^n \alpha_j^{(i)} y^{(i)} \phi(x^{(i)})$.    
+
 ```math  
 \begin{align}
 h(x) 
