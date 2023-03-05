@@ -348,8 +348,9 @@ $\frac{\partial{\log{(P_j)}}}{\partial{\tau}} = \frac{1}{\tau^2} \[ \frac{c \the
 The first term is the bracket is weighted average of $theta x$, so if $theta_j x$ is large, the value of the brackect will be negative, leading to negative $\frac{\partial{\log{(P_j)}}}{\partial{\tau}}$.    
 
 b) Test error   
+https://jdhao.github.io/2022/02/27/temperature_in_softmax/       
 Smaller temperature leads to less variance --> smaller test error     
-Increasing temperature parameter makes probability of large-$\theta$ label decrease and that of small-$\theta$ label increase, the probability distribution becomes **more uniform** as temperature parameter icreases.    
+Increasing temperature parameter makes probability of large- $\theta$ label decrease and that of small- $\theta$ label increase, the probability distribution becomes **more uniform** as temperature parameter icreases.    
 
 
 (4) Features: Dimensionality Reduction via ***PCA***             
