@@ -20,8 +20,9 @@ Pycharm
 
 ------------------------------------------------------------------------------------
 ## Unit 1. Linear classifier
-#-----------------------------------------------------------------------------------# 
+#---------------------------------------------------------------------------------------------------------# 
 ### L1. l2. linear classifiers 
+#---------------------------------------------------------------------------------------------------------# 
 A linear classifier $h, h(x; \theta_0, \theta) = sign(\theta \cdot x + \theta_0)$, i.e. the sign of the dot product of $\theta$ and $x$ plus $\theta_0$.   
 Linear separability: $y_i \cdot h(x_i) > 0$ for all $i$.  
 
@@ -50,8 +51,9 @@ initialize $\theta$ and $\theta_0$ with 0
 if $y^{(i)} \cdot (\theta \cdot x^{(i)}) \leq 1$, then update $\theta = (1 - \eta \lambda) \theta + \eta y^{(i)} x^{(i)}$; else, update $\theta = (1 - \eta \lambda) \theta$
 
 
-#-----------------------------------------------------------------------------------# 
-### Lecture 3. Hinge loss, Margin boundaries and Regularization
+#---------------------------------------------------------------------------------------------------------# 
+### Lecture 3.1 Hinge loss, Margin boundaries and Regularization
+#---------------------------------------------------------------------------------------------------------# 
 ***Decision boundary*** is the set of points $x$ which satisfy: $\theta \cdot x + \theta_0 = 0$   
 ***Margin Boundary*** is the set of points $x$ which satisfy: $\theta \cdot x + \theta_0 = \pm 1$    
 So, the distance from the decision boundary to the margin boundary is $\frac{1}{||\theta||}$.   
@@ -62,8 +64,9 @@ So, the distance from the decision boundary to the margin boundary is $\frac{1}{
 $J(\theta, \theta_0) = \frac{1}{n} \Sigma_{i=1}^n Loss_h (y^{(i)} \\cdot (\theta \cdot x^{(i)} + \theta_0)) + \frac{\lambda}{2}||\theta||^2$,
 where average loss: $\frac{1}{n} \Sigma_{i=1}^n Loss_h (y^{(i)} \\cdot (\theta \cdot x^{(i)} + \theta_0))$, regularization term: $\frac{\lambda}{2}||\theta||^2$, regularization paramter: $\lambda > 0 $.   
 
-
-#------Lecture 4. Linear Classification and Generalization ------#      
+#---------------------------------------------------------------------------------------------------------# 
+### Lecture 3.2 Linear Classification and Generalization 
+#---------------------------------------------------------------------------------------------------------# 
 Split training set into training set + validation set, and assess the loss of validation set.   
 
 ***Gradient descent***: Start $\theta$ at an arbitrary location: $\theta \leftarrow \theta_{start}$,    
@@ -79,8 +82,9 @@ Differently from perceptron, $\theta$ is updated even when there is no mistake.
 ***Support vector machine***: SVMs can efficiently perform a non-linear classification using what is called the kernel trick, implicitly mapping their inputs into high-dimensional feature spaces.
 
 
-#-----------------------------------------------------------------------------------# 
+#---------------------------------------------------------------------------------------------------------# 
 ### Lecture 4. Tuning the Regularization Hyperparameter by Cross Validation 
+#---------------------------------------------------------------------------------------------------------# 
 ***Supervised Learning***     
 Objective function (J = Loss + regularization($\alpha$R)) --> hyperparameter ($\alpha$, not determined through the optimization of J) --> cross validation     
 
@@ -112,8 +116,9 @@ $\alpha^{\*} = argmin_{\alpha} S(\alpha)$
 
 ------------------------------------------------------------------------------------
 ## Unit 2. Nonlinear Classification, Linear regression, Collaborative Filtering
-#-----------------------------------------------------------------------------------#  
+#---------------------------------------------------------------------------------------------------------# 
 ### Lecture 5. Linear regression
+#---------------------------------------------------------------------------------------------------------# 
 (1) ***Objective***   
 1) Empirical risk 
 $R_n (\theta) = \frac{1}{n} \Sigma_{i=1}^n Loss(y^{(i)} - \theta \cdot x^{(i)})$   
@@ -139,8 +144,9 @@ if $x_1, ..., x_n \ in \ ℝ^d, n ≫ d, then \ \theta = A^{-1} b, where \ A = \
 $J_{\lambda, \theta} (\theta) = R_n(\theta) + \frac{\lambda}{2} ||\theta||^2$    
 learning step: $\theta = (1 - \eta \lambda) \theta + \eta (y^{(i)} - \theta \cdot x^{(i)}) \cdot x^{(i)}$      
 
-#-----------------------------------------------------------------------------------# 
-### Lecture 6. Non-linear classifier     
+#---------------------------------------------------------------------------------------------------------# 
+### Lecture 6. Non-linear classifier  
+#---------------------------------------------------------------------------------------------------------# 
 (1) Higher order feature vectors         
 map $x \in \ ℝ^d$ to $\phi(x) \in ℝ^p$     
 e.g $\phi(x) = \[\phi_1(x), \phi_2(x)\]^T = \[x, x^2\]^2$   
@@ -183,8 +189,9 @@ $K(x, x') = \exp{(- \frac{1}{2} ||x - x'||^2)}$
 (7) Other non-linear classifier: random forest
 
 
-#-----------------------------------------------------------------------------------# 
+#---------------------------------------------------------------------------------------------------------# 
 ### L7. Recommender System
+#---------------------------------------------------------------------------------------------------------# 
 
 (1) K-Nearest Neighbor Method    
 $\hat{Y_{ai}} = \frac{\Sigma_{b \in KNN(a)} \ sim(a, b) Y_{bi}}{\Sigma_{b \in KNN(a)} \ sim(a, b)}$        
@@ -211,8 +218,9 @@ $J(U, V) = \Sigma_{(a, i) \in D} (y_{ai} - u_a v_i)^2 + \frac{\lambda}{2} \Sigma
 start with an initial $v$ (random initialization)--> solve $u'$, and input $u'$ --> solve $v'$ --> iritate until converge    
 
 
-#-----------------------------------------------------------------------------------# 
+#---------------------------------------------------------------------------------------------------------# 
 ### Python Implementation
+#---------------------------------------------------------------------------------------------------------# 
 http://kehang.github.io/basic_project/2017/04/02/mnist-classifiers-exploration/      
 (1) Linear Regression with Closed Form Solution    
 
@@ -379,6 +387,12 @@ h(x)
 We actually do not need the real mapping $\phi(x)$, but the inner product between two features after mapping: $\phi(x_i)\phi(x)$, where $x_i$ is a point in the training set and $x$ is the new data point for which we want to compute the probability. If we can create a kernel function $K(x,y) = \phi(x) \cdot \phi(y)$, for any two points $x$ and $y$, we can then kernelize our softmax regression algorithm.
 
 
+
+------------------------------------------------------------------------------------
+## Unit 3. Neural Networks
+#---------------------------------------------------------------------------------------------------------# 
+### L8. Introduction to Feedforward Neural Networks
+#---------------------------------------------------------------------------------------------------------# 
 
 
 
