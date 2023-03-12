@@ -22,7 +22,7 @@ Pycharm
 ## Unit 1. Linear classifier
 #---------------------------------------------------------------------------------------------------------# 
 ### L1. l2. linear classifiers 
-#---------------------------------------------------------------------------------------------------------# 
+#---------------------------------------------------------------------------------------------------------# \
 A linear classifier $h, h(x; \theta_0, \theta) = sign(\theta \cdot x + \theta_0)$, i.e. the sign of the dot product of $\theta$ and $x$ plus $\theta_0$.   
 Linear separability: $y_i \cdot h(x_i) > 0$ for all $i$.  
 
@@ -53,7 +53,7 @@ if $y^{(i)} \cdot (\theta \cdot x^{(i)}) \leq 1$, then update $\theta = (1 - \et
 
 #---------------------------------------------------------------------------------------------------------# 
 ### Lecture 3.1 Hinge loss, Margin boundaries and Regularization
-#---------------------------------------------------------------------------------------------------------# 
+#---------------------------------------------------------------------------------------------------------# \
 ***Decision boundary*** is the set of points $x$ which satisfy: $\theta \cdot x + \theta_0 = 0$   
 ***Margin Boundary*** is the set of points $x$ which satisfy: $\theta \cdot x + \theta_0 = \pm 1$    
 So, the distance from the decision boundary to the margin boundary is $\frac{1}{||\theta||}$.   
@@ -84,7 +84,7 @@ Differently from perceptron, $\theta$ is updated even when there is no mistake.
 
 #---------------------------------------------------------------------------------------------------------# 
 ### Lecture 4. Tuning the Regularization Hyperparameter by Cross Validation 
-#---------------------------------------------------------------------------------------------------------# 
+#---------------------------------------------------------------------------------------------------------# \
 ***Supervised Learning***     
 Objective function (J = Loss + regularization($\alpha$R)) --> hyperparameter ($\alpha$, not determined through the optimization of J) --> cross validation     
 
@@ -118,7 +118,7 @@ $\alpha^{\*} = argmin_{\alpha} S(\alpha)$
 ## Unit 2. Nonlinear Classification, Linear regression, Collaborative Filtering
 #---------------------------------------------------------------------------------------------------------# 
 ### Lecture 5. Linear regression
-#---------------------------------------------------------------------------------------------------------# 
+#---------------------------------------------------------------------------------------------------------# \
 (1) ***Objective***   
 1) Empirical risk 
 $R_n (\theta) = \frac{1}{n} \Sigma_{i=1}^n Loss(y^{(i)} - \theta \cdot x^{(i)})$   
@@ -146,7 +146,7 @@ learning step: $\theta = (1 - \eta \lambda) \theta + \eta (y^{(i)} - \theta \cdo
 
 #---------------------------------------------------------------------------------------------------------# 
 ### Lecture 6. Non-linear classifier  
-#---------------------------------------------------------------------------------------------------------# 
+#---------------------------------------------------------------------------------------------------------# \
 (1) Higher order feature vectors         
 map $x \in \ ℝ^d$ to $\phi(x) \in ℝ^p$     
 e.g $\phi(x) = \[\phi_1(x), \phi_2(x)\]^T = \[x, x^2\]^2$   
@@ -191,7 +191,7 @@ $K(x, x') = \exp{(- \frac{1}{2} ||x - x'||^2)}$
 
 #---------------------------------------------------------------------------------------------------------# 
 ### L7. Recommender System
-#---------------------------------------------------------------------------------------------------------# 
+#---------------------------------------------------------------------------------------------------------# \
 
 (1) K-Nearest Neighbor Method    
 $\hat{Y_{ai}} = \frac{\Sigma_{b \in KNN(a)} \ sim(a, b) Y_{bi}}{\Sigma_{b \in KNN(a)} \ sim(a, b)}$        
@@ -220,7 +220,7 @@ start with an initial $v$ (random initialization)--> solve $u'$, and input $u'$ 
 
 #---------------------------------------------------------------------------------------------------------# 
 ### Python Implementation
-#---------------------------------------------------------------------------------------------------------# 
+#---------------------------------------------------------------------------------------------------------# \
 http://kehang.github.io/basic_project/2017/04/02/mnist-classifiers-exploration/      
 (1) Linear Regression with Closed Form Solution    
 
@@ -390,9 +390,47 @@ We actually do not need the real mapping $\phi(x)$, but the inner product betwee
 
 ------------------------------------------------------------------------------------
 ## Unit 3. Neural Networks
-#---------------------------------------------------------------------------------------------------------# 
+#---------------------------------------------------------------------------------------------------------# \
 ### L8. Introduction to Feedforward Neural Networks
-#---------------------------------------------------------------------------------------------------------# 
+#---------------------------------------------------------------------------------------------------------# \
+- Implement a ***feedforward neural networks*** from scratch to perform image classification task.
+- Write down the gradient of the loss function with respect to the weight parameters using ***back-propagation algorithm*** and use ***SGD*** to train neural networks.
+- Understand that ***Recurrent Neural Networks (RNNs)*** and ***long short-term memory (LSTM)*** can be applied in modeling and generating sequences.
+- Implement a ***Convolutional neural networks (CNNs)*** with machine learning packages.
+
+
+(1) ***Feedforward Neural Networks Intro*** \
+Neural networks are models in which the **feature representation is learned jointly with the classifier** to improve classification performance. \
+
+A neural network unit: **input layer** + ***hidden layer*** + **output layer** \
+1)Inpput layer: $x$ \
+2}Hidden layer: introducing redundancy\
+$z = w_0 + x \cdot w$ \
+e.g, map x1, x2 to 10 dimentional space (z1, ..., z10) by multiplying (w1, ..., w10) --> easier to classify
+3) Outout layer: \
+$f(z)$: usually a non-linear function called ***activation function***, e.g., ***rectified linear function (ReLU)***, ***hyperbolic tangent function: tanh(z)***, etc. \
+-***rectified linear function (ReLU)***: $f(z) = max(0, z)$.\
+-***hyperbolic tangent function***: $tanh(z) = \frac{exp{z} - exp{-z}}{exp{z} + exp{-z}} = 1 - \frac{2}{exp{2z} + 1}$. \  
+
+
+(2) ***Back propagation and SGD*** \
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
