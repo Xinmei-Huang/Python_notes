@@ -400,24 +400,23 @@ We actually do not need the real mapping $\phi(x)$, but the inner product betwee
 - Implement a ***Convolutional neural networks (CNNs)*** with machine learning packages.
 
 
-(1) ***Feedforward Neural Networks Intro*** \
+#### (1) ***Feedforward Neural Networks Intro*** 
 Neural networks are models in which the **feature representation is learned jointly with the classifier** to improve classification performance. 
 
 A neural network unit: **input layer** + ***hidden layer*** + **output layer** \
 1)Inpput layer: $x$ \
-2}Hidden layer: introducing redundancy\
+2)Hidden layer: introducing redundancy\
 $z = w_0 + x \cdot w$ \
 e.g, map x1, x2 to 10 dimentional space (z1, ..., z10) by multiplying (w1, ..., w10) --> easier to classify
-3) Outout layer: \
+3)Outout layer: \
 $f(z)$: usually a non-linear function called ***activation function***, e.g., ***rectified linear function (ReLU)***, ***hyperbolic tangent function: tanh(z)***, etc. \
 -***rectified linear function (ReLU)***: $f(z) = max(0, z)$.\
 -***hyperbolic tangent function***: $tanh(z) = \frac{exp{z} - exp{-z}}{exp{z} + exp{-z}} = 1 - \frac{2}{exp{2z} + 1}$. 
 
 
-(2) ***Back Propagation and SGD*** 
+#### (2) ***Back Propagation and SGD*** 
+1)***Back Propagation Algorithm***: \
 
-***Back Propagation Algorithm***: \
-1
 
 
 
