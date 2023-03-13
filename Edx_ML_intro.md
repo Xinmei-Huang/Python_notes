@@ -390,9 +390,10 @@ We actually do not need the real mapping $\phi(x)$, but the inner product betwee
 
 ------------------------------------------------------------------------------------
 ## Unit 3. Neural Networks
-#---------------------------------------------------------------------------------------------------------# \
+#---------------------------------------------------------------------------------------------------------# 
 ### L8. Introduction to Feedforward Neural Networks
-#---------------------------------------------------------------------------------------------------------# \
+#---------------------------------------------------------------------------------------------------------# 
+
 - Implement a ***feedforward neural networks*** from scratch to perform image classification task.
 - Write down the gradient of the loss function with respect to the weight parameters using ***back-propagation algorithm*** and use ***SGD*** to train neural networks.
 - Understand that ***Recurrent Neural Networks (RNNs)*** and ***long short-term memory (LSTM)*** can be applied in modeling and generating sequences.
@@ -400,7 +401,7 @@ We actually do not need the real mapping $\phi(x)$, but the inner product betwee
 
 
 (1) ***Feedforward Neural Networks Intro*** \
-Neural networks are models in which the **feature representation is learned jointly with the classifier** to improve classification performance. \
+Neural networks are models in which the **feature representation is learned jointly with the classifier** to improve classification performance. 
 
 A neural network unit: **input layer** + ***hidden layer*** + **output layer** \
 1)Inpput layer: $x$ \
@@ -410,10 +411,13 @@ e.g, map x1, x2 to 10 dimentional space (z1, ..., z10) by multiplying (w1, ..., 
 3) Outout layer: \
 $f(z)$: usually a non-linear function called ***activation function***, e.g., ***rectified linear function (ReLU)***, ***hyperbolic tangent function: tanh(z)***, etc. \
 -***rectified linear function (ReLU)***: $f(z) = max(0, z)$.\
--***hyperbolic tangent function***: $tanh(z) = \frac{exp{z} - exp{-z}}{exp{z} + exp{-z}} = 1 - \frac{2}{exp{2z} + 1}$. \  
+-***hyperbolic tangent function***: $tanh(z) = \frac{exp{z} - exp{-z}}{exp{z} + exp{-z}} = 1 - \frac{2}{exp{2z} + 1}$. 
 
 
-(2) ***Back propagation and SGD*** \
+(2) ***Back Propagation and SGD*** 
+
+***Back Propagation Algorithm***: \
+1
 
 
 
