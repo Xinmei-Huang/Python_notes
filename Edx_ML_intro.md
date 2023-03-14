@@ -418,7 +418,9 @@ $f(z)$: usually a non-linear function called ***activation function***, e.g., **
 
 1)***Back Propagation Algorithm***: 
 
-With L hidden layers: $Loss(y; f(x, w)) = $
+With L hidden layers: $Loss(y; f(x, w)) = Loss(y; f_L) = (y - f_L)^2$ \
+for $i = 1, ..., L: z_i = f_{i-1} w_i, where f_{i-1} = f(z_{i-1})$ \
+$z_1 = x w$ \
 
 
 
