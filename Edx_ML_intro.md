@@ -400,6 +400,9 @@ We actually do not need the real mapping $\phi(x)$, but the inner product betwee
 - Implement a ***Convolutional neural networks (CNNs)*** with machine learning packages.
 
 
+#---------------------------------------------------------------------------------------------------------# 
+### L9. Feedforward Neural Networks, Back Propagation and SGD
+#---------------------------------------------------------------------------------------------------------# 
 #### (1) ***Feedforward Neural Networks Intro*** 
 Neural networks are models in which the **feature representation is learned jointly with the classifier** to improve classification performance. 
 
@@ -421,8 +424,65 @@ $f(z)$: usually a non-linear function called ***activation function***, e.g., **
 With L hidden layers: $Loss(y; f(x, w)) = Loss(y; f_L) = (y - f_L)^2$ \
 for $i = 1, ..., L: z_i = f_{i-1} w_i, where f_{i-1} = f(z_{i-1})$ \
 $z_1 = x w$ \
---> Gradient for $w_1$: \
-$\frac{\partial{L}}{\partial{w_1}} = x(1-f_1^2)(1-f_2^2) \cdots (1-f_L^2) w_2 w_3 \cdots w_L (2(f_L - y))$
+
+
+2)***SGD***: Gradient for $w_1$: 
+
+$\frac{\partial{L}}{\partial{w_1}} = x(1-f_1^2)(1-f_2^2) \cdots (1-f_L^2) w_2 w_3 \cdots w_L (2(f_L - y))$ 
+
+
+3)Characteristics: 
+
+-For multi-layer neural networks the loss function is no longer convex and any stochastic gradient descent (SGD) method is not guaranteed to reach global optimum \
+-Larger models tend to be easier to learn because their units need to be adjusted so that they are, collectively sufficient to solve the task \
+-Initialization plays a role in finding a good solution during training of neural networks \
+
+
+#---------------------------------------------------------------------------------------------------------# 
+### L10. Recurrent Neural Networks (for modeling sequences)
+#---------------------------------------------------------------------------------------------------------#
+
+#### (1) Temporal/sequence problems: (time trend, language)
+
+-For a feed-forward NN: \
+Using historical data to predict the next point (sliding window: e.g. 5 previous data points --> next data point). \
+But it requires the enginnering of "history" into the feature map.
+
+-RNN: learn how to encode the "history" into a vector 
+
+
+#### (2) RNN***: learning to encode/decode 
+
+-language modeling: predict the whole sentence \
+-sentimanet classification \
+-machine translation 
+
+
+1)***Encoding*** 
+
+$s_t = tanh(W^{s,s} s_{t-1} + W^{s,x} x_t)$, \
+$s_t \in \mathbb{R}^{m \times 1}$ new context, $s_{t-1} \in \mathbb{R}^{m \times 1}$ context, $W^{s,s} \in \mathbb{R}^{m \times m}$, $x_{t} \in \mathbb{R}^{d \times 1}$ new information, $W^{s,x} \in \mathbb{R}^{m \times d}$.
+
+-Input is received at each layer (per word), not just at the beginning as in a typical fee-forward network. \
+-The number of layer varies, depending on the lengths of the sentence. \
+-Parameter of each layer are shared (same RNN at each step). (e.g. (null)--(Efforts)--> $\theta$--(and)--> $\theta$--(courage)--> $\theta$--(are)--> $\theta$-->output: sentence as a vector)
+
+2)***Gating and long short-term memory networks (LSTM)***
+
+-***Simple gated RNN***: \
+$g_t = sigmoid(W^{g,s} s_{t-1} + W^{g,x} x_t), \ \in \[0, 1\]$ \
+$s_t = (1-g_t) ⊙ s_{t-1} + g_t ⊙ tanh(W^{s,s} s_{t-1} + W^{s,x} x_t)$
+
+
+3)***Decoding*** 
+
+
+
+
+
+
+
+
 
 
 
