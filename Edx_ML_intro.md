@@ -471,7 +471,16 @@ $s_t \in \mathbb{R}^{m \times 1}$ new context, $s_{t-1} \in \mathbb{R}^{m \times
 
 -***Simple gated RNN***: \
 $g_t = sigmoid(W^{g,s} s_{t-1} + W^{g,x} x_t), \ \in \[0, 1\]$ \
-$s_t = (1-g_t) ⊙ s_{t-1} + g_t ⊙ tanh(W^{s,s} s_{t-1} + W^{s,x} x_t)$
+$s_t = (1-g_t) ⊙ s_{t-1} + g_t ⊙ tanh(W^{s,s} s_{t-1} + W^{s,x} x_t)$ \
+the sign $⊙$ denotes element-wise multiplication.
+
+-***LSTM***: \
+context $\[c_{t-1}, h_{t-1}\]$ --(new information $x_t$)--> new context $\[c_{t}, h_{t}\]$ \
+**Forget gate**: $f_t = sigmoid(W^{f,h} h_{t-1} + W^{f,x} x_t)$ \
+**Input gate**: $i_t = sigmoid(W^{i,h} h_{t-1} + W^{i,x} x_t)$ \
+**Output gate**: $o_t = sigmoid(W^{o,h} h_{t-1} + W^{o,x} x_t)$ \
+**Memory cell**: $c_t = f_t ⊙ c_{t-1} + i_t ⊙ tanh(W^{c,h} h_{t-1} + W^{c,x} x_t)$ \
+**Visible state**: $h_t = o_t ⊙ tanh(c_t) $:
 
 
 3)***Decoding*** 
