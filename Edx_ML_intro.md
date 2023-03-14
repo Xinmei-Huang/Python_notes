@@ -421,6 +421,10 @@ $f(z)$: usually a non-linear function called ***activation function***, e.g., **
 With L hidden layers: $Loss(y; f(x, w)) = Loss(y; f_L) = (y - f_L)^2$ \
 for $i = 1, ..., L: z_i = f_{i-1} w_i, where f_{i-1} = f(z_{i-1})$ \
 $z_1 = x w$ \
+--> Gradient for $w_1$: \
+$\frac{\partial{L}}{\partial{w_1}} = x(1-f_1^2)(1-f_2^2) \cdots (1-f_L^2) w_2 w_3 \cdots w_L (2(f_L - y))$
+
+
 
 
 
