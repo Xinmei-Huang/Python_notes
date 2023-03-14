@@ -415,7 +415,13 @@ $f(z)$: usually a non-linear function called ***activation function***, e.g., **
 
 
 #### (2) ***Back Propagation and SGD*** 
-1)***Back Propagation Algorithm***: \
+
+1)***Back Propagation Algorithm***: 
+
+With L hidden layers: $Loss(y; f(x, w)) = $
+
+
+
 
 
 
