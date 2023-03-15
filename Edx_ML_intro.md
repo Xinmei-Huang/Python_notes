@@ -439,7 +439,7 @@ $\frac{\partial{L}}{\partial{w_1}} = x(1-f_1^2)(1-f_2^2) \cdots (1-f_L^2) w_2 w_
 
 
 #---------------------------------------------------------------------------------------------------------# 
-### L10. Recurrent Neural Networks (for modeling sequences)
+### L10. 11. Recurrent Neural Networks (for modeling sequences)
 #---------------------------------------------------------------------------------------------------------#
 
 #### (1) Temporal/sequence problems: (time trend, language)
@@ -483,7 +483,23 @@ context $\[c_{t-1}, h_{t-1}\]$ --(new information $x_t$)--> new context $\[c_{t}
 **Visible state**: $h_t = o_t ⊙ tanh(c_t) $:
 
 
-3)***Decoding*** 
+#### (3) ***Markov Models*** 
+
+(kth order Markov Models --> Feed-forward NN --> RNN)
+
+1)***Markov Language Models*** \
+Model setup: e.g. \
+$<$ beg $>$ The lecture leaves me UNK $<$ end $>$ \
+&nbsp;  &emsp; $w_0$ &ensp; &nbsp; $w_1$ &nbsp; &emsp; $w_2$  &emsp; $w_3$  &nbsp; $w_4$  &nbsp; $w_5$ &emsp; &nbsp; $w_6$ \
+$<$ *beg* $>$: start of sentence, $<$ *end* $>$: end of sentence, *UNK*: unknown words \
+
+
+
+
+
+
+
+
 
 
 
