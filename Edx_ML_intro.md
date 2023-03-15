@@ -491,7 +491,24 @@ context $\[c_{t-1}, h_{t-1}\]$ --(new information $x_t$)--> new context $\[c_{t}
 Model setup: e.g. \
 $<$ beg $>$ The lecture leaves me UNK $<$ end $>$ \
 &nbsp;  &emsp; $w_0$ &ensp; &nbsp; $w_1$ &nbsp; &emsp; $w_2$  &emsp; $w_3$  &nbsp; $w_4$  &nbsp; $w_5$ &emsp; &nbsp; $w_6$ \
-$<$ *beg* $>$: start of sentence, $<$ *end* $>$: end of sentence, *UNK*: unknown words \
+$<$ *beg* $>$: start of sentence, $<$ *end* $>$: end of sentence, *UNK*: unknown words 
+
+Probability table: 
+
+|             | The       | lecture   | is        | UNK       | \<end\>   |
+| -------     | ---       | ---       | ---       | ---       | ---       |
+| \<beg\>     | 0.7       | 0.1       | 0.1       | 0.1       | 0.0       |
+| The         | 0.0       | 0.6       | 0.1       | 0.1       | 0.0       |
+| lecture     | 0.0       | 0.0       | 0.7       | 0.1       | 0.2       |
+| is          | 0.1       | 0.2       | 0.1       | 0.6       | 0.0       |
+| UNK         | 0.1       | 0.2       | 0.1       | 0.3       | 0.3       |
+
+$<$ beg $>$ lecture is UNK $<$ end $>$ \
+P(lecture|\<beg\>) P(is|lecture) P(UNK|is) P(\<end|>|UNK) = 0.1 * 0.7 * 0.6 * 0.3
+
+
+
+
 
 
 
