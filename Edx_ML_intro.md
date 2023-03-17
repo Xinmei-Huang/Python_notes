@@ -508,8 +508,17 @@ P(lecture|\<beg\>) P(is|lecture) P(UNK|is) P(\<end|>|UNK) = 0.1 * 0.7 * 0.6 * 0.
 
 
 2)***Markov Models to Feed-forward NN*** \
-Weights: $z_i = W_i \phi(x_i) + W_0$, $\phi(x_i)$ onehot input. \
-Softmax output layer: $p_k = p(w_{i=k}|w_{i-1}) = \frac{\exp{z_k}}{\Sigma_j \exp{z_j}}$ --> $p_k \leq 0, \ \Sigma_k p_k = 1$. \
+Weights: $z_i = \Sigma_j \phi(x_j) W_{jk} + W_{0k}$, $\phi(x_j)$ onehot input. \
+Softmax output layer: $p_k = p(w_{i=k}|w_{i-1}) = \frac{\exp{z_k}}{\Sigma_j \exp{z_j}}$ --> $p_k \leq 0, \ \Sigma_k p_k = 1$. 
+
+**Comparison: Markov Models vs Feed-forward NN**: \
+-Feed-forward NN contains a fewer number of parameters. \
+-We can easily control the complexity of feedforward NN by introducing hidden layers. \
+*Suppose you have a word vocabulary of size 10 (including <beg> and <end>), and you were using a trigram language model to predict the next word.* \
+*Markov Model: 1000 parameters (100 choices for the previous two words, and 10 choices for the next word, leading to a size of 1000).* \
+*Feed-forward NN: 210 parameters (an input layer of size 20 and an output layer of size 10, leading to a weight matrix of size 200. We add 10 parameters for the bias vector).* \
+
+
 
 
 
