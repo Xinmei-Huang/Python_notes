@@ -507,6 +507,14 @@ $<$ beg $>$ lecture is UNK $<$ end $>$ \
 P(lecture|\<beg\>) P(is|lecture) P(UNK|is) P(\<end|>|UNK) = 0.1 * 0.7 * 0.6 * 0.3
 
 
+2)***Markov Models to Feed-forward NN*** \
+Weights: $z_i = W_i \phi(x_i) + W_0$, $\phi(x_i)$ onehot input. \
+Softmax output layer: $p_k = p(w_{i=k}|w_{i-1}) = \frac{\exp{z_k}}{\Sigma_j \exp{z_j}}$ --> $p_k \leq 0, \ \Sigma_k p_k = 1$. \
+
+
+
+
+
 
 
 
