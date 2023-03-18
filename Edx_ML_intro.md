@@ -553,9 +553,17 @@ An RNN model to translate images into sentences: Feeding the sampled output as p
  
 
 #### (4) Word Embedding (vs onehot)
-Word similarity: use in the same context, e.g. cat vs dog. 
+Word similarity: use in the same context, e.g. cat vs dog. \
 input --> (demension reduction) values representing distances --softmax--> output (same dimension as input)
+
  
+#---------------------------------------------------------------------------------------------------------# 
+### L12. Convolutional neural networks (CNNs)
+#---------------------------------------------------------------------------------------------------------#
+
+#### (1) Feed-forward NNs vs CNNs
+e.g., image classifiction: \
+
  
 
  
