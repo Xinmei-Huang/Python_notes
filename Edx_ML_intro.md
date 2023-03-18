@@ -520,8 +520,18 @@ Softmax output layer: $p_k = p(w_{i=k}|w_{i-1}) = \frac{\exp{z_k}}{\Sigma_j \exp
 
  
 3)***RNN***: The hidden state is fed in as input for the next step \
+-***Encoding***: \
 **State**: $tanh(W^{s,s} s_{t-1} + W^{s,x} x_t)$ \
 **Output disdribution**: $softmax(W^0 s_t)$ 
+ 
+-***Decoding***: \
+Unlike in encoding, at each step, an output distribution $p_t$ is produced in a decoding RNN. \
+An RNN model to translate images into sentences: Feeding the sampled output as part of the input to the next time step. (only in the test samples, not training samples)
+ 
+ 
+
+ 
+
  
  
 
