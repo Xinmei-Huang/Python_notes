@@ -489,9 +489,12 @@ $b^l_j is the bias of the $j^{th}$ neuron in the $l^{th}$ layer, $a^l_j$ is the 
 $a^l_j = f(\Sigma_k w^l_{jk} a_k^{l-1} + b^l_j)$. \
 Loss = $C(a^L)$ \
 Let weight inputs to $d^{th}$ neuron in $l^{th}$ layer is $z^l = w^l a^{l-1} + b^l$, where $z^l \in \mathbb{R}^d$, $a^l = f(z^l)$. And the error of $j^{th}$ neuron in the $l^{th}$ layer is $\delta_j^l = \frac{\partial{C}}{\partial{z_j^l}}$, $\delta^l \in \mathbb{R}^d$ denotes the full vector of errors associated with $l^{th}$ layer. \
--)*Assume there are d outputs from the last layer (i.e. $\a^L \in \mathbb{R}^d$). What is $\delta_j^L$ for the last layer?:* \
+-)*Assume there are d outputs from the last layer* (i.e. $a^L \in \mathbb{R}^d$). *What is* $\delta_j^L$ *for the last layer?:* \
 $\delta_j^L = \frac{\partial{C}}{\partial{z_j^L}} = \frac{\partial{C}}{\partial{a_j^L}} \cdot \frac{\partial{a_j^L}}{\partial{z_j^L}} = \frac{\partial{C}}{\partial{a_j^L}} \cdot f'(z_j^L)$ \
--)$\delta_j^l$ for all $l \neq L$: \
+-)*What is* $\delta_j^l$ *for all* $l \neq L$: \
+$\delta_k^{l+1} = \frac{\partial{C}}{\partial{z_k^{l+1}}} = \frac{\partial{C}}{\partial{a_j^{l}}} \frac{\partial{a_j^{l}}}{\partial{z_k^{l+1}}} = \frac{\partial{C}}{\partial{a_k^{l+1}}} * (w^l)^{-1}$ -> for all $k$ neurons in the $(l+1)^{th}$ layer: $\frac{\partial{C}}{\partial{a_j^{l}}} = \Sigma_k w_{jk}^l \delta_k^{l+1}$ \
+$\delta_j^l = \frac{\partial{C}}{\partial{z_j^l}} = \frac{\partial{C}}{\partial{a_j^l}} \frac{\partial{a_j^l}}{\partial{z_j^l}} = \Sigma_k w_{jk}^l \delta_k^{l+1} f'(z_j^l)$
+
 
 
 
