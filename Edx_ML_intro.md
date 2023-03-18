@@ -480,7 +480,18 @@ context $\[c_{t-1}, h_{t-1}\]$ --(new information $x_t$)--> new context $\[c_{t}
 **Input gate**: $i_t = sigmoid(W^{i,h} h_{t-1} + W^{i,x} x_t)$ \
 **Output gate**: $o_t = sigmoid(W^{o,h} h_{t-1} + W^{o,x} x_t)$ \
 **Memory cell**: $c_t = f_t ⊙ c_{t-1} + i_t ⊙ tanh(W^{c,h} h_{t-1} + W^{c,x} x_t)$ \
-**Visible state**: $h_t = o_t ⊙ tanh(c_t) $:
+**Visible state**: $h_t = o_t ⊙ tanh(c_t)$ 
+
+--> E.g. layer 1 -> layer 2-> layer 3 (output) \
+For $l = 1, ..., L$ layer: \
+$w^l_{jk}$ is the weight from the $k^{th}$ neuron in the $(l-1)^{th}$ layer to the $j^{th}$ neuron in the $l^{th}$ layer; \
+$b^l_j is the bias of the $j^{th}$ neuron in the $l^{th}$ layer, $a^l_j$ is the activation of $j^{th}$ neuron in the $l^{th}$ layer. \
+$a^l_j = f(\Sigma_k w^l_{jk} a_k^{l-1} + b^l_j)$. \
+Loss = $C(a^L)$ \
+Let weight inputs to $d^{th}$ neuron in $l^{th}$ layer is $z^l = w^l a^{l-1} + b^l$, where $z^l \in \mathbb{R}^d$, $a^l = f(z^l)$. And the error of $j^{th}$ neuron in the $l^{th}$ layer is $\delta_j^l = \frac{\partial{C}}{\partial{z_j^l}}$, $\delta^l \in \mathbb{R}^d$ denotes the full vector of errors associated with $l^{th}$ layer. \
+-)*Assume there are d outputs from the last layer (i.e. $\a^L \in \mathbb{R}^d$). What is $\delta_j^L* for the last layer?:* \
+$\delta_j^L = \frac{\partial{C}}{\partial{z_j^L}} = \frac{\partial{C}}{\partial{a_j^L}} \cdot \frac{\partial{a_j^L}}{\partial{z_j^L}} = \frac{\partial{C}}{\partial{a_j^L}} \cdot f'(z_j^L)$
+
 
 
 #### (3) ***Markov Models*** 
