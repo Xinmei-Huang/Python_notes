@@ -518,6 +518,13 @@ Softmax output layer: $p_k = p(w_{i=k}|w_{i-1}) = \frac{\exp{z_k}}{\Sigma_j \exp
 *Markov Model: 1000 parameters (100 choices for the previous two words, and 10 choices for the next word, leading to a size of 1000).* \
 *Feed-forward NN: 210 parameters (an input layer of size 20 and an output layer of size 10, leading to a weight matrix of size 200. We add 10 parameters for the bias vector).* \
 
+ 
+3)***RNN***: The hidden state is fed in as input for the next step \
+**State**: $tanh(W^{s,s} s_{t-1} + W^{s,x} x_t)$ \
+**Output disdribution**: $softmax(W^0 s_t)$ 
+ 
+ 
+
 
 
 
