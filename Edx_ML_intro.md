@@ -562,7 +562,15 @@ input --> (demension reduction) values representing distances --softmax--> outpu
 #---------------------------------------------------------------------------------------------------------#
 
 #### (1) Feed-forward NNs vs CNNs
-e.g., image classifiction: \
+e.g., image classifiction (1000*1000 pixels): \
+-Feed-forward NNs: if the pic is moved --> prediction will not be accurate. \
+-CNNs: input -->(Patch classifier, e.g., 11*11)--> feature map --(pooling with defined stride, e.g, max(5*5 pixels), disregard the location within the patch)--> pooled map \
+
+**Characteristics**: shared parameters, 11*11=121.
+ 
+
+ 
+
 
  
 
