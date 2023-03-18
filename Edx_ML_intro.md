@@ -549,6 +549,12 @@ Softmax output layer: $p_k = p(w_{i=k}|w_{i-1}) = \frac{\exp{z_k}}{\Sigma_j \exp
 -***Decoding***: \
 Unlike in encoding, at each step, an output distribution $p_t$ is produced in a decoding RNN. \
 An RNN model to translate images into sentences: Feeding the sampled output as part of the input to the next time step. (only in the test samples, not training samples)
+
+ 
+
+#### (4) Word Embedding (vs onehot)
+Word similarity: use in the same context, e.g. cat vs dog. 
+input --> (demension reduction) values representing distances --softmax--> output (same dimension as input)
  
  
 
