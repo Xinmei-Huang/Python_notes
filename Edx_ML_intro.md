@@ -579,6 +579,15 @@ flowchart LR;
     D(layer 3 <br> 256,6by6) --"6by6 pooling <br> 4by4 subsampling"--> E(layer 4 <br> 256, 1by1);
     E(layer 4 <br> 256, 1by1) --> F(Output <br> 101)
 ```
+ 
+
+#### （3）Convolution/Cross Correlation
+
+<img src = "https://user-images.githubusercontent.com/55688631/226154375-a0bbb66c-7589-4349-940d-8570d7932007.png" width="400" height="whatever">   
+
+
+
+
 
 
  
