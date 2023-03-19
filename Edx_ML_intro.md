@@ -572,12 +572,12 @@ e.g., image classifiction (1000*1000 pixels): \
 e.g., multiple convolution layers to extract different feature maps. 
  
 ```mermaid
-flowchart TD;
-    A(Input 83by83) --"9by9 convolution 64 kernels"--> B(layer 1 64@75by75);
-    B --"10by10 pooling, 5by5 subsampling"--> C(layer 2 64@14by14);
-    C --"9by9 convolution 4096 kernels"--> D(layer 3 256@6by6);
-    D --"6by6 pooling 4by4 subsampling"--> E(256@1by1);
-    E --> F(Output 101)
+flowchart LR;
+    A(Input <br> 83by83) --"9by9 convolution <br> 64 kernels"--> B(layer 1 <br> 64,75by75);
+    B(layer 1 <br> 64,75by75) --"10by10 pooling <br> 5by5 subsampling"--> C(layer 2 <br> 64,14by14);
+    C(layer 2 <br> 64,14by14) --"9by9 convolution <br> 4096 kernels"--> D(layer 3 <br> 256,6by6);
+    D(layer 3 <br> 256,6by6) --"6by6 pooling <br> 4by4 subsampling"--> E(layer 4 <br> 256, 1by1);
+    E(layer 4 <br> 256, 1by1) --> F(Output <br> 101)
 ```
 
 
