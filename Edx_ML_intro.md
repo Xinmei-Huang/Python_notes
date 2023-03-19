@@ -586,7 +586,7 @@ flowchart LR;
 <img src = "https://user-images.githubusercontent.com/55688631/226154375-a0bbb66c-7589-4349-940d-8570d7932007.png" width="400" height="whatever">   
 
 -convolution: $(f \ast g)(t) = \int_{-\infty}^{\infty} f(\tau) g(t - \tau) d\tau$
-
+-cross correlation: $(f \ast g)(t) = \int_{-\infty}^{\infty} f(\tau) g(\tau) d\tau$
 
 
 
