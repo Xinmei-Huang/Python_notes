@@ -568,6 +568,18 @@ e.g., image classifiction (1000*1000 pixels): \
 
 **Characteristics**: shared parameters, 11*11=121.
  
+#### (2) CNNs
+e.g., multiple convolution layers to extract different feature maps. 
+ 
+```mermaid
+flowchart TD;
+    A(Input 83by83) --"9by9 convolution 64 kernels"--> B(layer 1 64@75by75);
+    B --"10by10 pooling, 5by5 subsampling"--> C(layer 2 64@14by14);
+    C --"9by9 convolution 4096 kernels"--> D(layer 3 256@6by6);
+    D --"6by6 pooling 4by4 subsampling"--> E(256@1by1);
+    E --> F(Output 101)
+```
+
 
  
 
