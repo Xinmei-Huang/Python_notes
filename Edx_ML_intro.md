@@ -499,8 +499,8 @@ $\delta_j^L = \frac{\partial{C}}{\partial{z_j^L}} = \frac{\partial{C}}{\partial{
 $\delta_k^{l+1} = \frac{\partial{C}}{\partial{z_k^{l+1}}} = \frac{\partial{C}}{\partial{a_j^{l}}} \frac{\partial{a_j^{l}}}{\partial{z_k^{l+1}}} = \frac{\partial{C}}{\partial{a_k^{l+1}}} * (w^l)^{-1}$ -> for all $k$ neurons in the $(l+1)^{th}$ layer: $\frac{\partial{C}}{\partial{a_j^{l}}} = \Sigma_k w_{jk}^l \delta_k^{l+1}$ \
 $\delta_j^l = \frac{\partial{C}}{\partial{z_j^l}} = \frac{\partial{C}}{\partial{a_j^l}} \frac{\partial{a_j^l}}{\partial{z_j^l}} = \Sigma_k w_{jk}^l \delta_k^{l+1} f'(z_j^l)$ \
 ---3.2)**Parameter Derivatives**---: \
--)$\frac{\partial{C}}{\partial{w_{jk}^l}} = \frac{\partial{C}}{\partial{z_j^l}} \frac{\partial{z_j^l}}{\partial{w_{jk}^l}} = \delta_j^l a_k^{l-1}$
--)$\frac{\partial{C}}{\partial{b_{j}^l}} = \delta_j^l$
+$\frac{\partial{C}}{\partial{w_{jk}^l}} = \frac{\partial{C}}{\partial{z_j^l}} \frac{\partial{z_j^l}}{\partial{w_{jk}^l}} = \delta_j^l a_k^{l-1}$ \
+$\frac{\partial{C}}{\partial{b_{j}^l}} = \delta_j^l$
 
 
 
