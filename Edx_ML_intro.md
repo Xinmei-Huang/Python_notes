@@ -588,7 +588,18 @@ flowchart LR;
 -convolution: $(f \ast g)(t) = \int_{-\infty}^{\infty} f(\tau) g(t - \tau) d\tau$ \
 -cross correlation: $(f \ast g)(t) = \int_{-\infty}^{\infty} f(\tau) g(\tau) d\tau$
 
-Usually, f(t) is signal, g(t) is filter (learned) --> convolution and cross correlation are equivalent in CNNS --> using cross correlation for easier computation.
+Usually, f(t) is signal, g(t) is filter (learned) --> convolution and cross correlation are equivalent in CNNS --> using cross correlation for easier computation.\
+
+
+ 
+#### （4）Attention
+
+1)Too many hidden units: takes up more memory/ may overfit the training data/ will take longer to train
+
+2)Too many epochs: In general too many epochs may cause your model to over-fit the training data. It means that your model does not learn the data
+ 
+3)Improving accuracy: batch size/learning rate/momentum/activation function/models architecture...
+
 
 
 
