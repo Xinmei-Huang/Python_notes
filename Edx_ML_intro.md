@@ -611,6 +611,11 @@ Usually, f(t) is signal, g(t) is filter (learned) --> convolution and cross corr
 #### (1) Introduction
 Example: image quantization (1024*1024 resolution $\cdot$ 24 bits(RGB) = 3M in size) \
 --> simplification: 32 colors = $2^5$ to encode, therefore 1024 $\times$ 1024 $\cdot$ 5 + 32 $\cdot$ 24 = 646 K in size 
+ 
+
+Definition of **Clustering**: \
+The training set $S{x^{(i)}, i = 1, ..., n}$ into K cluster, \
+Output: $C_1 \cup ... \cup C_K = {x^{(1)}, ..., x^{(n)}}$, and $C_i \cap C_j = \emptyset, i \neq j$.
 
  
 
