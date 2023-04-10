@@ -620,7 +620,7 @@ Output: $C_1 \cup ... \cup C_K = {x^{(1)}, ..., x^{(n)}}$, and $C_i \cap C_j = \
 
 #### (2) Similarity Measures-Cost functions
 $Cost(C, z) = \Sigma_{i \in C} dist(x^{(i)}, z), z$ is the representative. \
-Distance function choise: Euclidean distance, etc. \
+Distance function choise: Euclidean distance, Cosine distance, etc. \
 --> Euclidean distance: $Cost(C_i, ..., C_k, z_i, ..., z_k) = \Sigma_j^k \Sigma_{i \in C_j} ||x^{(i)}, z_j||^2$
  
 
