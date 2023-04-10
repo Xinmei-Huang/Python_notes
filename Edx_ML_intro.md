@@ -609,8 +609,9 @@ Usually, f(t) is signal, g(t) is filter (learned) --> convolution and cross corr
 #---------------------------------------------------------------------------------------------------------#
 
 #### (1) Introduction
-Example: image quantization (1024*1024 resolution $\cdot$ 24 bits(RGB) = 3M in size)
---> simplification: 32 colors = $2^5$ to encode, therefore 1024*1024 $\cdot$ 5 + 32 $\cdot$ 24 = 646 K in size 
+Example: image quantization (1024*1024 resolution $\cdot$ 24 bits(RGB) = 3M in size) \
+--> simplification: 32 colors = $2^5$ to encode, therefore 1024*1024 $\cdot$ 5 + 32 $\cdot$ 24 = 646 K in size \
+
  
 
 
