@@ -616,7 +616,12 @@ Example: image quantization (1024*1024 resolution $\cdot$ 24 bits(RGB) = 3M in s
 Definition of **Clustering**: \
 The training set $S{x^{(i)}, i = 1, ..., n}$ into K cluster, \
 Output: $C_1 \cup ... \cup C_K = {x^{(1)}, ..., x^{(n)}}$, and $C_i \cap C_j = \emptyset, i \neq j$.
+ 
 
+#### (2) Similarity Measures-Cost functions
+$Cost(C, z) = \Sigma_{i \in C} dist(x^{(i)}, z), z$ is the representative. \
+Distance function choise: Euclidean distance, etc. \
+--> Euclidean distance: $Cost(C_i, ..., C_k, z_i, ..., z_k) = \Sigma_j^k \Sigma_{i \in C_j} ||x^{(i)}, z_j||^2$
  
 
 
