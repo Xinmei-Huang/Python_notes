@@ -630,7 +630,14 @@ Distance function choise: Euclidean distance, Cosine distance, etc. \
 1)Randomly select $z^{(1)}, ..., z^{(k)}$.\
 2) Iteration: \
 -Assign all points x to the closest z. $Cost(z^{(1)}, ..., z^{(k)}) = \Sigma_{i=1}^n \min_{j=1, ..., k} ||x^{(1)} - z^{(j)}||^2$\
--Given $C_1, ..., C_k$, find the best representative z, $Cost(C_1, ..., C_k) = \min_{z^{(1)}, ..., z^{(k)}} \Sigma_{j=1}^k \Sigma_{i \in C_j} ||x^{(1)} - z^{(j)}||^2$$.
+-Given $C_1, ..., C_k$, find the best representative z, $Cost(C_1, ..., C_k) = \min_{z^{(1)}, ..., z^{(k)}} \Sigma_{j=1}^k \Sigma_{i \in C_j} ||x^{(1)} - z^{(j)}||^2$.
+
+Notes:
+-Finding representative z: $z_j$ is the centroid of (center of mass assuming each $x^{(i)}$ has equal mass) of the $j$th cluster\
+gradient: $\nabla_{z_j} (\Sigma_{i \in C_j} ||x^{(1)} - z_j||^2) = \Sigma_{i \in C_j} -2(x^{(i)} - z_j)$ --> $z_j = \frac{\Sigma_{i \in C_j} x^{(i)}}{|C_j|}$.
+-It will converge to the local minimum: depends on the initialization --> try different initialization
+ 
+
  
 
 
