@@ -622,6 +622,15 @@ Output: $C_1 \cup ... \cup C_K = {x^{(1)}, ..., x^{(n)}}$, and $C_i \cap C_j = \
 $Cost(C, z) = \Sigma_{i \in C} dist(x^{(i)}, z), z$ is the representative. \
 Distance function choise: Euclidean distance, Cosine distance, etc. \
 --> Euclidean distance: $Cost(C_i, ..., C_k, z_i, ..., z_k) = \Sigma_j^k \Sigma_{i \in C_j} ||x^{(i)}, z_j||^2$
+
+!!!! However, too expensive--> the number of cost needs to be estimated grows exponentially with K.
+
+ 
+#### (3) K-means Algorithm
+1)Randomly select $z^{(1)}, ..., z^{(k)}$.\
+2) Iteration: \
+-Assign all points x to the closest z. $Cost(z^{(1)}, ..., z^{(k)}) = \Sigma_{i=1}^n \min_{j=1, ..., k} ||x^{(1)} - z^{(j)}||^2$\
+-Given $C_1, ..., C_k$, find the best representative z, $Cost(C_1, ..., C_k) = \min_{z^{(1)}, ..., z^{(k)}} \Sigma_{j=1}^k \Sigma_{i \in C_j} ||x^{(1)} - z^{(j)}||^2$$.
  
 
 
