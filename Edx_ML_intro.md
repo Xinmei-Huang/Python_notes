@@ -605,7 +605,7 @@ Usually, f(t) is signal, g(t) is filter (learned) --> convolution and cross corr
 ------------------------------------------------------------------------------------
 ## Unit 4. Unsupervised Learning
 #---------------------------------------------------------------------------------------------------------# 
-### L13. Clustering
+### L13. 14. Clustering
 #---------------------------------------------------------------------------------------------------------#
 
 #### (1) Introduction
@@ -634,7 +634,7 @@ Distance function choise: Euclidean distance, Cosine distance, etc. \
 
 Notes: \
 -Finding representative z: $z_j$ is the centroid of (center of mass assuming each $x^{(i)}$ has equal mass) of the $j$th cluster\
-gradient: $\nabla_{z_j} (\Sigma_{i \in C_j} ||x^{(1)} - z_j||^2) = \Sigma_{i \in C_j} -2(x^{(i)} - z_j)$ --> $z_j = \frac{\Sigma_{i \in C_j} x^{(i)}}{|C_j|}$.
+gradient: $\nabla_{z_j} (\Sigma_{i \in C_j} ||x^{(1)} - z_j||^2) = \Sigma_{i \in C_j} -2(x^{(i)} - z_j)$ --> $z_j = \frac{\Sigma_{i \in C_j} x^{(i)}}{|C_j|}$ (C_j: size of the jth cluster).
 -It will converge to the local minimum: depends on the initialization --> try different initialization/keep initial $z_j$ well spread out.
  
 Drawbacks: \
@@ -642,6 +642,13 @@ Drawbacks: \
 -Not robust to outliers. \
 -Does not scale well with increasing number of dimensions
  
+Limitation of the application of K-means: \
+-$z_j$ can be a new point, not from original $x_i$: e.g. The representative google news can not be empty. \
+-The distance function can only be Euclidean distance.
+
+
+#### (4) K-Medoids Algoritm
+
 
  
 
