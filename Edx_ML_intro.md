@@ -628,7 +628,7 @@ Distance function choise: Euclidean distance, Cosine distance, etc. \
  
 #### (3) K-means Algorithm
 1)Randomly select $z^{(1)}, ..., z^{(k)}$.\
-2) Iteration: \
+2)Iteration until no change in cost: \
 -Assign all points x to the closest z. $Cost(z^{(1)}, ..., z^{(k)}) = \Sigma_{i=1}^n \min_{j=1, ..., k} ||x^{(1)} - z^{(j)}||^2$\
 -Given $C_1, ..., C_k$, find the best representative z, $Cost(C_1, ..., C_k) = \min_{z^{(1)}, ..., z^{(k)}} \Sigma_{j=1}^k \Sigma_{i \in C_j} ||x^{(1)} - z^{(j)}||^2$.
 
@@ -642,12 +642,22 @@ Drawbacks: \
 -Not robust to outliers. \
 -Does not scale well with increasing number of dimensions
  
-Limitation of the application of K-means: \
+Limitation of the application of K-means (--> Can be solved by K-Medoids Algoritm): \
 -$z_j$ can be a new point, not from original $x_i$: e.g. The representative google news can not be empty. \
 -The distance function can only be Euclidean distance.
 
 
 #### (4) K-Medoids Algoritm
+1)Randomly initialize ${z^{(1)}, ..., z^{(k)}} \subseteq {{x^{(1)}, ..., x^{(n)}}$.\
+2)Iteration until no change in cost: \
+-Assign all points x to the closest z. $Cost(z^{(1)}, ..., z^{(k)}) = \Sigma_{i=1}^n \min_{j=1, ..., k} dist(x^{i}, z^{(j)})$.\
+-For $j = 1, ..., k, z^{(j)} \in {{x^{(1)}, ..., x^{(n)}} s.t. \sigma_{i \in C_j} dist(x^{i}, z^{(j)}) is minimized$.
+ 
+
+#### (5) Computational Complexity of K-Means and K-Medoids
+
+ 
+
 
 
  
