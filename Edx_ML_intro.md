@@ -713,8 +713,14 @@ consider the outcome to be positive and negative, we classify D as positive iff 
 #### (5) Gaussian Generative models
 Multivariate Gaussian Random Vector: a random vector $X = (X^{(1)}, ..., X^{(d)})^T$ is a Gaussian vector, or multivariate Gaussian or normal variable, if any linear combination of its components is a (univariate) Gaussian variable or a constant (a "Gaussian" variable with zero variance). \
 The distribution of X, the d-dimensional Gaussian or normal distribution, is completely specified by the vector mean $\mu = E [X] = (E[(X^{(1)})], ..., E[(X^{(d)})])^T$ and the $d \times d$ covariance matrix $\Sigma$. If $\Sigma$ is invertible, then the pdf of X is: \
-$f_X (X) = \frac{1}{\sqrt{(2 \pi)^2 \ det (\Sigma)}} \exp{-\frac{1}{2} (X - \mu)^T \Sigma^{-1} (X - \mu)}$.
+$f_X (X) = \frac{1}{\sqrt{(2 \pi)^d \ det (\Sigma)}} \exp{-\frac{1}{2} (X - \mu)^T \Sigma^{-1} (X - \mu)}, \ x \in \mathbb{R}^d$.
  
+ 
+#### (6) MLEs for Gaussian Distribution
+$S_n = {x^{(1)}, ..., x^{(n)}}$, $\mathbb{P} (S_n | \mu, \sigma^2) = \prod\limits_{i=1}^{n} \mathbb{P} (x^{(i)} | \mu, \sigma^2)$. \
+--> log probability: $\log \mathbb{P} (S_n | \mu, \sigma^2) = \Sigma_{i=1}^n -\frac{d}{2} \log (2 \pi \sigma^2) - \frac{1}{2 \sigma^2} \Sigma_{i=1}^n ||X^{(i)} - \mu||^2$ \
+1)-->$\frac{\partial{L}}{\partial{\mu}} = \frac{1}{\sigma^2}  \Sigma_{i=1}^n (X^{(i)} - \mu)= 0$, --> $\hat{\mu} = \frac{\Sigma_{i=1}^n X^{(i)}}{n}$
+2)-->$\frac{\partial{L}}{\partial{\sigma^2}} = -\frac{nd}{2 \sigma^2} + \frac{\Sigma_{i=1}^n ||X^{(i)} - \mu||^2}{2 (\sigma^2)^2}= 0$ --> $\hat{\sigma}^2 = \frac{\Sigma_{i=1}^n ||X^{(i)} - \mu||^2}{nd}$
 
 
 
