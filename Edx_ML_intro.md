@@ -691,7 +691,7 @@ eg, for 3 situations, $p_1, p_2, p_3$, the probability of event D = {12233}: $\m
 $\mathbb{P} (D | \theta) = \prod\limits_{i=1}^{n} \theta_{x_i} = \prod_{x \in X} \theta_x^{count(x)}$, where $\Sigma_{x \in X} \theta_x= 1$. \
 $\log{\mathbb{P} (D | \theta)} = \Sigma_{x \in X} \ count(w) \ \log \theta_x$.
 --> define the Lagrange function: \
-$L = \log{\mathbb{P} (D | \theta)} + \lambda (\Sigma_{x \in X} \theta_x - 1)$, $\lanbmda$ is a constant scalar.\
+$L = \log{\mathbb{P} (D | \theta)} + \lambda (\Sigma_{x \in X} \theta_x - 1)$, $\lambda$ is a constant scalar.\
 Find the the stationary points of $L$ by solving the equation $\nabla_{\theta} L = 0$. \
 --> $\theta_x = \frac{- \lambda}{count(x)}, \lambda = - \Sigma_{x \in X} count(x)$
 
