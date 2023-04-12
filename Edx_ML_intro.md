@@ -679,7 +679,17 @@ Supervised Elements of Unsupervised Learning-->before training, provide some inf
 $\mathbb{P}(x | \theta) = theta_x, theta_x \geq 0, \Sigma_{x \in X} \theta_x = 1$.
 
 **Likelihood function**: \
-Event: $D$, Probability: $\mathbb{P} (D | \theta) = \prod\limits_{i=1}^{n} = \theta_{x_i}$.
+Event: $D$, Probability: $\mathbb{P} (D | \theta) = \prod\limits_{i=1}^{n} \theta_{x_i}$.
+ 
+**Likelihood function Estimate**: \
+$\max_{\theta} \mathbb{P} (D | \theta) = \max_{\theta} \prod\limits_{i=1}^{n} \theta_{x_i}$
+--> take log (won't change the result): $\Sigma_{i}^{n} \theta_{x_i}\
+ 
+**MLE for Multinomial Distribution:**\
+eg, for 3 situations, $p_1, p_2, p_3$, the probability of event D = {12233}: $\mathbb{P}(D) = p_1 p_2^2 p_3^2$. \
+$\mathbb{P} (D | \theta) = \prod\limits_{i=1}^{n} \theta_{x_i} = \prod_{x \in X} \theta_x^{count(x)}$
+ 
+
 
 
  
