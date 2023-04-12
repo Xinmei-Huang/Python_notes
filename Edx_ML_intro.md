@@ -655,10 +655,20 @@ Limitation of the application of K-means (--> Can be solved by K-Medoids Algorit
  
 
 #### (5) Computational Complexity of K-Means and K-Medoids
+(d is dimension of $x_i$) \
+1)K-means: $O(n \cdot k \cdot d)$ \
+2)K-medoid: $O(n^2 \cdot k \cdot d)$ (have to compute the dist of each pair of the points)
 
  
-
-
+#### (6) Determining the Number of Clusters 
+Supervised Elements of Unsupervised Learning-->before training, provide some information:\
+-Number of clusters K
+-The cost measure for distance between $x^{(1) \in C_j} and $z^{(j)} (dist(x^{i}, z^{(j)}))$
+ 
+ 
+#---------------------------------------------------------------------------------------------------------# 
+### L15. Generative models
+#---------------------------------------------------------------------------------------------------------#
 
  
 
