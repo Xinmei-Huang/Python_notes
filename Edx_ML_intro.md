@@ -699,7 +699,16 @@ Find the the stationary points of $L$ by solving the equation $\nabla_{\theta} L
 #### (3) Generative Multinomial Model: prediction
 Predictions of a Generative Multinomial Model: \
 consider the outcome to be positive and negative, we classify D as positive iff $\log \frac{P(D | theta^{+})}{P(D | theta^{-})} \geq 0$. \
---> equivalent to a linear classifier given by $\Sigma_{x \in X} count(x) \theta_x^{'}$, where $\theta_x^{'} = \log \frac{theta_x^{+}}{theta_x^{-}}$.
+--> equivalent to a linear classifier given by $\Sigma_{x \in X} \ count(x) \ \theta_x^{'}$, where $\theta_x^{'} = \log \frac{\theta_x^{+}}{\theta_x^{-}}$.
+ 
+
+#### (4) Prior, Posterior and Likelihood
+```math
+\log \frac{\mathbb{P}(y = + | D)}{\mathbb{P}(y = - | D)} = \log \frac{\mathbb{P}(D | \theta_x^{+}) \mathbb{P}(y = +)}{\mathbb{P}(D | \theta_x^{-})\mathbb{P}(y = -)} 
+ =\log \frac{\mathbb{P}(D | \theta_x^{+})}{\mathbb{P}(D | \theta_x^{-})} + log \frac{\mathbb{P}(y = +)}{\mathbb{P}(y = -)} = \Sigma_{x \in X} \ count(x) \ \hat{\theta}_x^{'} + \hat{theta}_0
+ 
+```
+
 
  
 
