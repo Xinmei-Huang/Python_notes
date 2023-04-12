@@ -648,10 +648,10 @@ Limitation of the application of K-means (--> Can be solved by K-Medoids Algorit
 
 
 #### (4) K-Medoids Algoritm
-1)Randomly initialize ${z^{(1)}, ..., z^{(k)}} \subseteq {{x^{(1)}, ..., x^{(n)}}$.\
+1)Randomly initialize ${z^{(1)}, ..., z^{(k)}} \subseteq {x^{(1)}, ..., x^{(n)}}$.\
 2)Iteration until no change in cost: \
 -Assign all points x to the closest z. $Cost(z^{(1)}, ..., z^{(k)}) = \Sigma_{i=1}^n \min_{j=1, ..., k} dist(x^{i}, z^{(j)})$.\
--For $j = 1, ..., k, z^{(j)} \in {{x^{(1)}, ..., x^{(n)}} s.t. \sigma_{i \in C_j} dist(x^{i}, z^{(j)}) is minimized$.
+-For $j = 1, ..., k$, $z^{(j)} \in {x^{(1)}, ..., x^{(n)}}$ s.t. $\Sigma_{i \in C_j} \ \text{dist}(x^{i}, z^{(j)})$ is minimized.
  
 
 #### (5) Computational Complexity of K-Means and K-Medoids
@@ -663,17 +663,24 @@ Limitation of the application of K-means (--> Can be solved by K-Medoids Algorit
 #### (6) Determining the Number of Clusters 
 Supervised Elements of Unsupervised Learning-->before training, provide some information:\
 -Number of clusters K
--The cost measure for distance between $x^{(1) \in C_j} and $z^{(j)} (dist(x^{i}, z^{(j)}))$
+-The cost measure for distance between $x^{(1)} \in C_j$ and $z^{(j)} (dist(x^{i}, z^{(j)}))$
  
  
 #---------------------------------------------------------------------------------------------------------# 
 ### L15. Generative models
 #---------------------------------------------------------------------------------------------------------#
 
+#### (1) Generative vs. Discriminative models
+-Generative models model the probability distribution of each class. \
+-Discriminative models learn the decision boundary between the classes
  
 
+#### (2) Multinomial Generative model
+$\mathbb{P}(x | \theta) = theta_x, theta_x \geq 0, \Sigma_{x \in X} \theta_x = 1$.
 
- 
+**Likelihood function**: \
+Event: $D$, Probability: $\mathbb{P} (D | \theta) = \prod\limits_{i=1}^{n} = \theta_{x_i}$.
+
 
  
 
