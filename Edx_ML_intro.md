@@ -684,10 +684,30 @@ Event: $D$, Probability: $\mathbb{P} (D | \theta) = \prod\limits_{i=1}^{n} \thet
 **Likelihood function Estimate**: \
 $\max_{\theta} \mathbb{P} (D | \theta) = \max_{\theta} \prod\limits_{i=1}^{n} \theta_{x_i}$
 --> take log (won't change the result): $\Sigma_{i}^{n} \theta_{x_i}\
- 
+
+
 **MLE for Multinomial Distribution:**\
 eg, for 3 situations, $p_1, p_2, p_3$, the probability of event D = {12233}: $\mathbb{P}(D) = p_1 p_2^2 p_3^2$. \
-$\mathbb{P} (D | \theta) = \prod\limits_{i=1}^{n} \theta_{x_i} = \prod_{x \in X} \theta_x^{count(x)}$
+$\mathbb{P} (D | \theta) = \prod\limits_{i=1}^{n} \theta_{x_i} = \prod_{x \in X} \theta_x^{count(x)}$, where $\Sigma_{x \in X} \theta_x= 1$. \
+$\log{\mathbb{P} (D | \theta)} = \Sigma_{x \in X} \ count(w) \ \log \theta_x$.
+--> define the Lagrange function: \
+$L = \log{\mathbb{P} (D | \theta)} + \lambda (\Sigma_{x \in X} \theta_x - 1)$, $\lanbmda$ is a constant scalar.\
+Find the the stationary points of $L$ by solving the equation $\nabla_{\theta} L = 0$. \
+--> $\theta_x = \frac{- \lambda}{count(x)}, \lambda = - \Sigma_{x \in X} count(x)$
+
+ 
+#### (3) Generative Multinomial Model: prediction
+Predictions of a Generative Multinomial Model: \
+consider the outcome to be positive and negative, we classify D as positive iff $\log \frac{P(D | theta^{+})}{P(D | theta^{-})} \geq 0$. \
+--> equivalent to a linear classifier given by $\Sigma_{x \in X} count(x) \theta_x^{'}$, where $\theta_x^{'} = \log \frac{theta_x^{+}}{theta_x^{-}}$.
+
+ 
+
+
+
+ 
+
+
  
 
 
