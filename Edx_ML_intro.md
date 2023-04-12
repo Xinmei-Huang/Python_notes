@@ -719,8 +719,8 @@ $f_X (X) = \frac{1}{\sqrt{(2 \pi)^d \ det (\Sigma)}} \exp{-\frac{1}{2} (X - \mu)
 #### (6) MLEs for Gaussian Distribution
 $S_n = {x^{(1)}, ..., x^{(n)}}$, $\mathbb{P} (S_n | \mu, \sigma^2) = \prod\limits_{i=1}^{n} \mathbb{P} (x^{(i)} | \mu, \sigma^2)$. \
 --> log probability: $\log \mathbb{P} (S_n | \mu, \sigma^2) = \Sigma_{i=1}^n -\frac{d}{2} \log (2 \pi \sigma^2) - \frac{1}{2 \sigma^2} \Sigma_{i=1}^n ||X^{(i)} - \mu||^2$ \
-1)-->$\frac{\partial{L}}{\partial{\mu}} = \frac{1}{\sigma^2}  \Sigma_{i=1}^n (X^{(i)} - \mu)= 0$, --> $\hat{\mu} = \frac{\Sigma_{i=1}^n X^{(i)}}{n}$
-2)-->$\frac{\partial{L}}{\partial{\sigma^2}} = -\frac{nd}{2 \sigma^2} + \frac{\Sigma_{i=1}^n ||X^{(i)} - \mu||^2}{2 (\sigma^2)^2}= 0$ --> $\hat{\sigma}^2 = \frac{\Sigma_{i=1}^n ||X^{(i)} - \mu||^2}{nd}$
+$\frac{\partial{L}}{\partial{\mu}} = \frac{1}{\sigma^2}  \Sigma_{i=1}^n (X^{(i)} - \mu)= 0$, --> $\hat{\mu} = \frac{\Sigma_{i=1}^n X^{(i)}}{n}$ \
+$\frac{\partial{L}}{\partial{\sigma^2}} = -\frac{nd}{2 \sigma^2} + \frac{\Sigma_{i=1}^n ||X^{(i)} - \mu||^2}{2 (\sigma^2)^2}= 0$ --> $\hat{\sigma}^2 = \frac{\Sigma_{i=1}^n ||X^{(i)} - \mu||^2}{nd}$
 
 
 
