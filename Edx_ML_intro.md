@@ -696,18 +696,27 @@ Find the the stationary points of $L$ by solving the equation $\nabla_{\theta} L
 --> $\theta_x = \frac{- \lambda}{count(x)}, \lambda = - \Sigma_{x \in X} count(x)$
 
  
-#### (3) Generative Multinomial Model: prediction
+#### (3) Multinomial Distribution: prediction
 Predictions of a Generative Multinomial Model: \
 consider the outcome to be positive and negative, we classify D as positive iff $\log \frac{P(D | theta^{+})}{P(D | theta^{-})} \geq 0$. \
 --> equivalent to a linear classifier given by $\Sigma_{x \in X} \ count(x) \ \theta_x^{'}$, where $\theta_x^{'} = \log \frac{\theta_x^{+}}{\theta_x^{-}}$.
  
 
-#### (4) Prior, Posterior and Likelihood
+#### (4) Multinomial Distribution: Prior, Posterior and Likelihood
+
 ```math
 \log \frac{\mathbb{P}(y = + | D)}{\mathbb{P}(y = - | D)} = \log \frac{\mathbb{P}(D | \theta_x^{+}) \mathbb{P}(y = +)}{\mathbb{P}(D | \theta_x^{-})\mathbb{P}(y = -)} 
- =\log \frac{\mathbb{P}(D | \theta_x^{+})}{\mathbb{P}(D | \theta_x^{-})} + log \frac{\mathbb{P}(y = +)}{\mathbb{P}(y = -)} = \Sigma_{x \in X} \ count(x) \ \hat{\theta}_x^{'} + \hat{theta}_0
- 
+ =\log \frac{\mathbb{P}(D | \theta_x^{+})}{\mathbb{P}(D | \theta_x^{-})} + log \frac{\mathbb{P}(y = +)}{\mathbb{P}(y = -)} = \Sigma_{x \in X} \ count(x) \ \hat{\theta}_x^{'} + \hat{\theta}_0
 ```
+ 
+ 
+#### (5) Gaussian Generative models
+Multivariate Gaussian Random Vector: a random vector $X = (X^{(1)}, ..., X^{(d)})^T$ is a Gaussian vector, or multivariate Gaussian or normal variable, if any linear combination of its components is a (univariate) Gaussian variable or a constant (a "Gaussian" variable with zero variance). \
+The distribution of X, the d-dimensional Gaussian or normal distribution, is completely specified by the vector mean $\mu = E [X] = (E[(X^{(1)})], ..., E[(X^{(d)})])^T$ and the $d \times d$ covariance matrix $\Sigma$. If $\Sigma$ is invertible, then the pdf of X is: \
+$f_X (X) = \frac{1}{\sqrt{(2 \pi)^2 \ det (\Sigma)}} \exp{-\frac{1}{2} (X - \mu)^T \Sigma^{-1} (X - \mu)}$.
+ 
+
+
 
 
  
