@@ -751,11 +751,15 @@ For an observed data ($x_i$ has a specific label, not a probability)
   0 & \text{otherwise} ,
 \end{cases}
 ```
-we can compute:  \ 
+we can compute:  
+
 -number of observations in each cluster: $\hat{n}_j = \Sigma_{i=1}^n \delta(j | i)$. \
 -p: $\frac{\hat{n}_j}{n}$. \
 -mu: $\mu_j = \frac{1}{\hat{n}_j} \Sigma_{i=1}^n \delta(j | i) x_i$.\
 -sigma: $\sigma_j = \frac{1}{\hat{n}_j d} \Sigma_{i=1}^n \delta(j | i) ||x_i - \mu_j||^2$.
+ 
+
+#### (3) The Expectation Maximization (EM) Algorithm
  
 
 
