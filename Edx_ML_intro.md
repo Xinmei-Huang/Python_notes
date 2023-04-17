@@ -724,8 +724,23 @@ $\frac{\partial{L}}{\partial{\sigma^2}} = -\frac{nd}{2 \sigma^2} + \frac{\Sigma_
 
 
 
+#---------------------------------------------------------------------------------------------------------# 
+### L16. Mixture Models; EM algorithm
+#---------------------------------------------------------------------------------------------------------#
 
+#### (1) Gaussian Mixture Model: Definitions
+
+A Gaussian Mixture Model (GMM), which is a generative model for data $x \in \mathbb{R}^d$, is defined by the following set of parameters: \
+-K: Number of mixture components \
+-A d-dimensional Gaussian $\mathcal{N} (\mu_j, \sigma_j^2)$ for every $j = 1, ..., K$. \
+-$p_1, ..., p_K$: Mixture weights
+
+The parameters of a K-component GMM can be collectively represented as $\theta = \{p_1, ..., p_K, \mu_1, ..., \mu_K, \sigma_1^2, ..., \sigma_K^2 \}$. Note that we have assumed the same variance $\sigma_j^2$ across all components of the jth Gaussian mixture component for $j = 1, ..., K$. Further, every Gaussian component is assumed to have a diagonal covariance matrix. These are two assumptions that are made only for simplicity and the methodology presented can be extended to the setting of a general covariance matrix. Also, note that $\mu_j$ is a K-dimensional vector for every $j = 1, ..., K$.
  
+The likelihood of a point $x$ in a GMM is given as
+$$p(x | \theta) = \Sigma_j^K p_j \mathcal{N} (\mu_j, \sigma_j^2).$$
+The generative model can be thought of first selecting the component $j = 1, ..., K$, which is modeled using the multinomial distribution with parameters $p_1, ..., p_K$, and then selecting a point x from the Gaussian component $\mathcal{N} (\mu_j, \sigma_j^2)$.
+
 
 
 
