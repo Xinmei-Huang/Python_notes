@@ -832,10 +832,34 @@ First clusting $x_u$ (each user) to {1, ..., K} cluster (using only observed dat
 
 
 
- 
+
+------------------------------------------------------------------------------------
+## Unit 5. Reinforcement Learning
+#---------------------------------------------------------------------------------------------------------# 
+### Lecture 17. Reinforcement Learning
+#---------------------------------------------------------------------------------------------------------# 
+
+#### (1) Introduction to Reinforcement Learning
+Reinforcement learning algorithms can learn to take actions so as to maximize some notion of a cumulative reward instead of the reward for the next step and they can take “good“ actions even without any intermediate rewards. (!!!!Not maximizing the reward for each immediate next step）
+
+-Markov Desicion Process (MDPs) \
+-Bellman Equations \
+-Value Iteration Algorithm
+
+#### (2) RL Terminology
+
+A Markov decision process (MDP) is defined by:
+
+- a set of states $s \in S$ (observed);
+- a set of actions $a \in A$ (directions to go, e.g, straight/back/left/right);
+- Action dependent transition probabilities $T(s, a, s^{\prime}) = P(s^{\prime}|s, a)$, so that for each state s and action a, $\sum_{s^{\prime} \in S} T(s, a, s^{\prime}) = 1$.
+- Reward functions $R(s, a, s^{\prime})$ representing the reward for starting in state s, taking action s and ending up in state $s^{\prime}$ after one step. (The reward function may also depend only on s, or only s and a.)
+
+MDPs satisfy the Markov property in that the transition probabilities and rewards depend only on the current state and action, and remain unchanged regardless of the history (i.e. past states and actions) that leads to the current state.
 
 
- 
+
+#### (3) Utility Function
 
 
 
