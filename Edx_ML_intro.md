@@ -861,6 +861,18 @@ MDPs satisfy the Markov property in that the transition probabilities and reward
 
 #### (3) Utility Function
 
+The main problem for MDPs is to optimize the agent‘s behavior. To do so, we first need to specify the criterion that we are trying to maximize in terms of accumulated rewards. We will define a utility function and maximize its expectation.
+
+***Finite Horizon vs Discounted Reward***: \
+1)Finite horizon based utility: The utility function is the sum of rewards after acting for a fixed number n steps. For example, in the case when the rewards depend only on the states, the utility function is
+$$U\[s_0, ..., s_n\] = \Sigma_{i = 0}^n R(s_i),$$
+In particular $U\[s_0, ..., s_n+m\] = U\[s_0, ..., s_n\]$ for any positive integer m.
+
+2)(Infinite horizon) discounted reward based utility (!!!!bounded--> essential for us to make our algorithms converge): In this setting, the reward one step into the future is discounted by a factor $\gamma$, the reward two steps ahead by$\gamma^2$ , and so on. The goal is to continue acting (without an end) while maximizing the expected discounted reward. The discounting allows us to focus on near term rewards, and control this focus by changing $\gamma$. For example, if the rewards depend only on the states, the utility function is
+$$U\[s_0, s_1 ...\] = \Sigma_{k = 0}^n \gamma^k R(s_k) \leq R_{max} \Sigma_{k = 0}^n \gamma^k \leq \frac{R_{max}}{1 - \gamma}, \gamma \in \[0, 1).$$
+ 
+ 
+ 
 
 
  
