@@ -870,6 +870,19 @@ In particular $U\[s_0, ..., s_n+m\] = U\[s_0, ..., s_n\]$ for any positive integ
 
 2)(Infinite horizon) discounted reward based utility (!!!!bounded--> essential for us to make our algorithms converge): In this setting, the reward one step into the future is discounted by a factor $\gamma$, the reward two steps ahead by$\gamma^2$ , and so on. The goal is to continue acting (without an end) while maximizing the expected discounted reward. The discounting allows us to focus on near term rewards, and control this focus by changing $\gamma$. For example, if the rewards depend only on the states, the utility function is
 $$U\[s_0, s_1 ...\] = \Sigma_{k = 0}^n \gamma^k R(s_k) \leq R_{max} \Sigma_{k = 0}^n \gamma^k \leq \frac{R_{max}}{1 - \gamma}, \gamma \in \[0, 1).$$
+
+ 
+ 
+#### (4) Policy and Value Functions
+***Policy***: Given an MDP, and a utility function $U\[s_0, ..., s_n\]$, our goal is to find an optimal policy function that maximizes the expectation of the utility. Here, a policy is a function $\pi: S \rightarrow A$ that assigns an action $\pi(s)$ to any state s. We denote the optimal policy by $\pi*$.
+
+
+***Value function***: A value function $V(s)$ of a given state s is the expected reward (i.e the expectation of the utility function) if the agent acts optimally starting at state s.
+ 
+
+ 
+#### (5) Bellman Equations
+
  
  
  
